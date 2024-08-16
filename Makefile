@@ -113,8 +113,8 @@ composer\:update:
 		2>/dev/null || true
 
 ide-helper:
-	docker exec -it -u $(UID) -e XDEBUG_MODE=off $(CONTAINER_FPM) php artisan ide-helper:generate 2>/dev/null || true && \
-	docker exec -it -u $(UID) -e XDEBUG_MODE=off $(CONTAINER_FPM) php artisan ide-helper:models --write-mixin 2>/dev/null || true && \
+	docker exec -it -u $(UID) -e XDEBUG_MODE=off $(CONTAINER_FPM) php artisan ide-helper:generate stubs/IdeHelper.php 2>/dev/null || true && \
+	docker exec -it -u $(UID) -e XDEBUG_MODE=off $(CONTAINER_FPM) php artisan ide-helper:models --write-mixin -F stubs/ModelHelper.php 2>/dev/null || true && \
 	docker exec -it -u $(UID) -e XDEBUG_MODE=off $(CONTAINER_FPM) php artisan ide-helper:eloquent 2>/dev/null || true
 
 cache\:clear:
