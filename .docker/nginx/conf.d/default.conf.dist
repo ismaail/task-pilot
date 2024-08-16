@@ -1,0 +1,31 @@
+server {
+    listen 80;
+    server_name _;
+    root /home/docker/public;
+    index index.php index.html;
+
+    server_tokens off;
+
+    rewrite ^/(.*)/$ /$1 permanent;
+
+    error_log  /home/docker/storage/logs/error.log;
+    access_log /home/docker/storage/logs/access.log;
+
+    location / {
+        try_files $uri $uri/ /index.php$is_args$args;
+        autoindex off;
+    }
+
+    location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass fpm:9000;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+}
