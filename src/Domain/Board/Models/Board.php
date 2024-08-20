@@ -2,9 +2,11 @@
 
 namespace Domain\Board\Models;
 
+use Domain\Bucket\Models\Bucket;
 use Domain\User\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Support\Models\Concerns\HasFactory;
 
 /**
@@ -41,5 +43,10 @@ class Board extends Model
             ->withPivot(['relation'])
             ->using(BoardMember::class)
             ;
+    }
+
+    public function buckets(): HasMany
+    {
+        return $this->hasMany(Bucket::class, '');
     }
 }
