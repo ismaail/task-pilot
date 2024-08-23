@@ -1,10 +1,10 @@
 <?php
 
-use App\Livewire\Board;
+use App\Livewire\BoardComponent;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('boards/{board}', Board::class)->name('boards.show');
+Route::get('boards/{board}', BoardComponent::class)->name('boards.show');
