@@ -7,7 +7,7 @@
 		@apply h-screen;
 	}
 	body {
-		@apply flex flex-col tracking-wide font-normal bg-secondary text-black;
+		@apply flex flex-col items-start tracking-wide font-normal bg-secondary text-black;
 	}
 }
 

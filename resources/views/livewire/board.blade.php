@@ -1,6 +1,6 @@
 <div class="flex flex-col w-full px-4 pb-4 bg-red500/60">
 	<h1 class="p-4 bg-white/5 rounded text-lg font-semibold text-white">Board: {{ $board->name }}</h1>
-	<div class="flex w-full flex-grow items-start overflow-y-hidden mt-4 space-x-2 bg-green500/50">
+	<div class="flex w-full flex-grow items-start overflow-y-hidden mt-4 space-x-3 bg-green500/50">
 		@foreach($board->buckets as $bucket)
 			<div class="w-64 p-2 space-y-2 rounded bg-gray-100 max-h-full overflow-y-auto scrollbar">
 				<h2 class="text-base font-semibold">{{ $bucket->name }}</h2>
