@@ -4,12 +4,11 @@
 		@foreach($board->buckets as $bucket)
 			<div class="w-64 p-2 space-y-2 rounded bg-gray-100 max-h-full overflow-y-auto scrollbar">
 				<h2 class="text-base font-semibold">{{ $bucket->name }}</h2>
-				<div class="w-full min-h-16 p-2 rounded bg-white shadowxl border-2 border-gray-200 hover:border-blue-400 text-sm cursor-pointer">
-					Lorem ipsum dolor sit amet.
-				</div>
-				<div class="w-full min-h-16 p-2 rounded bg-white shadowxl border-2 border-gray-200 hover:border-blue-400 text-sm cursor-pointer">
-					Dolore ipsam laborum maxime quasi?
-				</div>
+				@foreach($bucket->tasks as $task)
+					<div class="w-full min-h14 px-2 py-2 rounded bg-white shadowxl border-2 border-gray-200 hover:border-blue-400 text-sm cursor-pointer">
+						<span class="line-clamp-3">{{ $task->name }}</span>
+					</div>
+				@endforeach
 			</div>
 		@endforeach
 	</div>
