@@ -9,7 +9,7 @@
 	@vite('resources/assets/css/app.css')
 </head>
 <body>
-	<nav class="border-gray-200">
+	<nav>
 		<div class="flex flex-wrap items-start justify-between max-w-screen-xl mx-auto p-4">
 			<a href="#" class="flex items-center space-x-2">
 				<img src="{{ asset('images/logo-m.jpg') }}" class="h-8" alt="Task Pilot Logo" />
@@ -17,7 +17,7 @@
 			</a>
 		</div>
 	</nav>
-	<div class="flex flex-grow max-w-screen-xl overflow-y-hidden">
+	<div class="flex flex-grow w-full overflow-y-hidden">
 		{{ $slot }}
 	</div>
 </body>
