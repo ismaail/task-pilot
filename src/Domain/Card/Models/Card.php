@@ -1,14 +1,14 @@
 <?php
 
-namespace Domain\Task\Models;
+namespace Domain\Card\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Support\Models\Concerns\HasFactory;
 
 /**
- * @mixin IdeHelperTask
+ * @mixin IdeHelperCard
  */
-class Task extends Model
+class Card extends Model
 {
     use HasFactory;
 

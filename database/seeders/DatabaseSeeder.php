@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Domain\Board\Models\Board;
 use Domain\Board\Types\BoardMembership;
 use Domain\Bucket\Models\Bucket;
-use Domain\Task\Models\Task;
+use Domain\Card\Models\Card;
 use Domain\User\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
                     ['name' => 'In Progess', 'sort' => 3],
                     ['name' => 'Done', 'sort' => 4],
                 )
-                ->has(Task::factory(random_int(3, 10))))
+                ->has(Card::factory(random_int(3, 10))))
             ->create();
     }
 }

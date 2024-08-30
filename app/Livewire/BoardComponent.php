@@ -12,7 +12,7 @@ class BoardComponent extends Component
 
     public function mount(Board $board): void
     {
-        $board->load(['buckets.tasks']);
+        $board->load(['buckets.cards']);
     }
 
     public function render(): View

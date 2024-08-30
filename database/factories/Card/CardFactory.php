@@ -1,17 +1,17 @@
 <?php
 
-namespace Database\Factories\Task;
+namespace Database\Factories\Card;
 
-use Domain\Task\Models\Task;
+use Domain\Card\Models\Card;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends Factory<Task>
+ * @extends Factory<Card>
  */
-class TaskFactory extends Factory
+class CardFactory extends Factory
 {
-    protected $model = Task::class;
+    protected $model = Card::class;
 
     /**
      * @return array<string, mixed>

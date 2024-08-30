@@ -8,17 +8,17 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('tasks_assignees', function (Blueprint $table) {
-            $table->foreignId('task_id')->constrained('tasks')->cascadeOnDelete();
+        Schema::create('cards_assignees', function (Blueprint $table) {
+            $table->foreignId('card_id')->constrained('cards')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
 
-            $table->unique(['task_id', 'user_id']);
+            $table->unique(['card_id', 'user_id']);
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('tasks_assignees');
+        Schema::dropIfExists('cards_assignees');
     }
 };

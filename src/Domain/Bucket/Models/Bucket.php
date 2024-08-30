@@ -2,7 +2,7 @@
 
 namespace Domain\Bucket\Models;
 
-use Domain\Task\Models\Task;
+use Domain\Card\Models\Card;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Support\Models\Concerns\HasFactory;
@@ -19,8 +19,8 @@ class Bucket extends Model
         'archived',
     ];
 
-    public function tasks(): HasMany
+    public function cards(): HasMany
     {
-        return $this->hasMany(Task::class, 'bucket_id', 'id');
+        return $this->hasMany(Card::class, 'bucket_id', 'id');
     }
 }
