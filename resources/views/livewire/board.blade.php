@@ -4,15 +4,25 @@
 		@foreach($board->buckets as $bucket)
 			<div class="w-64 p-2 space-y-2 rounded bg-gray-100 max-h-full overflow-y-auto scrollbar">
 				<div class="flex items-start justify-between">
-					<h2 class="text-base font-semibold">{{ $bucket->name }}<div class="text-xs text-gray-600">{{ $bucket->cards->count() }} Tasks</div></h2>
-					<button class="px-2 rounded text-lg bg-gray-200 hover:bg-secondary hover:text-white" title="Add New Task">&plus;</button>
+					{{-- Bucket Title + Cards/ count --}}
+					<h2 class="text-base font-semibold">{{ $bucket->name }}<span class="block text-xs text-gray-600">{{ $bucket->cards->count() }} Tasks</span></h2>
+					{{-- Create Task Button --}}
+					<button
+							wire:click="$dispatch('openModal', { component: 'card.modals.create-card', arguments: { bucket: {{ $bucket->id }} } })"
+							class="px-2 rounded text-lg bg-gray-200 hover:bg-secondary hover:text-white"
+						title="Add New Task"
+					>&plus;</button>
 				</div>
 				@forelse($bucket->cards as $card)
 					<div class="w-full min-h14 px-2 py-2 rounded bg-white shadowxl border-2 border-gray-200 hover:border-secondary text-sm cursor-pointer">
-						<span class="line-clamp-3">{{ $card->name }}</span>
+						<span class="line-clamp-3 select-none">{{ $card->name }}</span>
 					</div>
 				@empty
-					<button class="w-full px-2 py-1 rounded bg-gray-200 hover:bg-secondary font-semibold hover:text-white">&plus; Add Task</button>
+					<button
+							id="task-btn"
+							wire:click="$dispatch('openModal', { component: 'card.modals.create-card', arguments: { bucket: {{ $bucket->id }} } })"
+							class="w-full px-2 py-1 rounded bg-gray-200 hover:bg-secondary font-semibold hover:text-white"
+					>&plus; Add Task</button>
 				@endforelse
 			</div>
 		@endforeach
