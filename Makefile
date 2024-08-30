@@ -1,4 +1,4 @@
-.PHONY: up start stop down log artisan migrate migrate\:fresh migrate\:rollback scrap phone import composer composer\:update supervisor-update permissions\:fix fpm-reload ide-helper tests deploy yarn nginx-check nginx-reload pm2\:start pm2\:stop postgres\:fix
+.PHONY: up start stop down log artisan migrate migrate\:fresh migrate\:rollback scrap phone import composer composer\:update supervisor-update permissions\:fix fpm-reload ide-helper tests deploy yarn nginx-check nginx-reload pm2\:start pm2\:restart pm2\:stop pm2\:delete postgres\:fix
 
 include .env
 
@@ -167,8 +167,14 @@ debug\:disable:
 pm2\:start:
 	pm2 start pm2.yml
 
+pm2\:restart:
+	pm2 restart pm2.yml
+
 pm2\:stop:
 	pm2 stop pm2.yml
+
+pm2\:delete:
+	pm2 delete pm2.yml
 
 db_username?="$(DB_USERNAME)"
 db_password?="$(DB_PASSWORD)"
