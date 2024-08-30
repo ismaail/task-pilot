@@ -20,5 +20,6 @@
 	<div class="flex flex-grow w-full overflow-y-hidden">
 		{{ $slot }}
 	</div>
+	@livewire('wire-elements-modal')
 </body>
 </html>
