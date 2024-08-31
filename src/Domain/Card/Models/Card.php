@@ -18,6 +18,7 @@ class Card extends Model
         'name',
         'description',
         'sort',
+        'spent_seconds',
     ];
 
     protected function casts(): array
