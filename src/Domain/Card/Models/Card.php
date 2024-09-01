@@ -5,6 +5,7 @@ namespace Domain\Card\Models;
 use Domain\Timelog\Models\Timelog;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Auth;
 use Support\Models\Concerns\HasFactory;
 
 /**
@@ -32,5 +33,10 @@ class Card extends Model
     public function timelogs(): HasMany
     {
         return $this->hasMany(Timelog::class, 'card_id', 'id');
+    }
+
+    public function isCurrent(): bool
+    {
+        return Auth::user()->current_card_id === $this->id;
     }
 }
