@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Timelog extends Model
 {
     protected $fillable = [
+        'card_id',
         'started_at',
         'finished_at',
         'elapsed_seconds',
@@ -22,8 +23,8 @@ class Timelog extends Model
     protected function casts(): array
     {
         return [
-            'started_at' => 'datetime',
-            'finished_at' => 'datetime',
+            'started_at' => 'immutable_datetime',
+            'finished_at' => 'immutable_datetime',
         ];
     }
 
