@@ -7,4 +7,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('boards/{board}', BoardComponent::class)->name('boards.show');
+Route::group(['middleware' => ['auth', 'verified']], function () {
+    Route::get('boards/{board}', BoardComponent::class)->name('boards.show');
+});
