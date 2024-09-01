@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Domain\User\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Domain\Card\Models\Card;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Support\Models\Concerns\HasFactory;
@@ -52,5 +54,10 @@ class User extends Authenticatable
             'password' => 'hashed',
             'current_card_at' => 'immutable_datetime',
         ];
+    }
+
+    public function currentCard(): HasOne
+    {
+        return $this->hasOne(Card::class, 'id', 'current_card_id');
     }
 }
