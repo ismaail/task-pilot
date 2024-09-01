@@ -15,8 +15,12 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        Board::factory(5)
-            ->hasAttached(User::factory(1), pivot: ['relation' => BoardMembership::Owner], relationship: 'members')
+        Board::factory(1)
+            ->hasAttached(
+                User::factory(1)->state(['name' => 'Tester', 'email' => 'test@example.com']),
+                pivot: ['relation' => BoardMembership::Owner],
+                relationship: 'members'
+            )
             ->hasAttached(User::factory(2), pivot: ['relation' => BoardMembership::Guest], relationship: 'members')
             ->has(Bucket::factory(4)
                 ->sequence(
