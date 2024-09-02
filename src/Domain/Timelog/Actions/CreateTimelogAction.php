@@ -7,6 +7,7 @@ namespace Domain\Timelog\Actions;
 use Carbon\CarbonImmutable;
 use Domain\Card\DataObjects\CurrentCardDataObject;
 use Domain\Timelog\Models\Timelog;
+use Domain\Timelog\TimelogException;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 /**
@@ -18,6 +19,10 @@ class CreateTimelogAction
 
     public function handle(CurrentCardDataObject $card): void
     {
+        if (! $card->id || ! $card->startedAt) {
+            throw new TimelogException('Cannot create Timelog without empty Card.');
+        }
+
         $now = CarbonImmutable::now();
         $secondsDiff = $card->startedAt->diffInSeconds($now);
 
