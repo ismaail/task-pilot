@@ -37,6 +37,8 @@ class CardComponent extends Component
         UpdateCurrentCardAction::run();
 
         CreateTimelogAction::run($currentCard);
+
+        $this->refreshCard($currentCard);
     }
 
     public function render(): View
