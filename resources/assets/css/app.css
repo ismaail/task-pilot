@@ -15,3 +15,7 @@
 	scrollbar-color: #6b6b6b8f #49464638;
 	scrollbar-width: thin;
 }
+
+.dropdown-button {
+	@apply flex w-full items-center justify-start gap-x-1 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100;
+}
