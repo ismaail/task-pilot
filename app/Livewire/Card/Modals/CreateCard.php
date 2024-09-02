@@ -13,11 +13,13 @@ class CreateCard extends ModalComponent
 
     public CardForm $form;
 
+    #[\Override]
     public static function modalMaxWidth(): string
     {
         return 'md';
     }
 
+    #[\Override]
     public static function closeModalOnClickAway(): bool
     {
         return false;
