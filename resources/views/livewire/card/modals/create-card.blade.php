@@ -2,9 +2,7 @@
 	<div class="flex px-2 justify-between items-center">
 		<h2 class="font-semibold">Create New Task</h2>
 		<button wire:click="$dispatch('closeModal')" class="fill-secondary text-white hover:fill-secondary/90 hover:text-white">
-			<svg xmlns="http://www.w3.org/2000/svg" fill="fillColor" viewBox="0 0 25 25" stroke-width="1.5" stroke="currentColor" class="size-8">
-				<path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-			</svg>
+			<x-icons.circle-close class="size-8"></x-icons.circle-close>
 		</button>
 	</div>
 	<form class="my-2 px-2 pt-2 space-y-4 border-t border-gray-300" wire:submit.prevent="create">
