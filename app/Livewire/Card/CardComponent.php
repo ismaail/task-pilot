@@ -30,7 +30,7 @@ class CardComponent extends Component
         $this->refreshCard($currentCard);
     }
 
-    public function stop()
+    public function stop(): void
     {
         $currentCard = CurrentCardDataObject::makeFromAuthUser();
 
