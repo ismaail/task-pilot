@@ -10,7 +10,7 @@
 	<form class="my-2 px-2 pt-2 space-y-4 border-t border-gray-300" wire:submit.prevent="create">
 		<div>
 			<label for="name" class="block textsm font-semibold">Name</label>
-			<input type="text" id="name" wire:model="form.name" required autocomplete="name" class="block w-full mt-2 py-1 px-2 border border-gray-400 rounded-md shadow-sm outline-none focus:border-sky-500 focus:ring-sky-500">
+			<input type="text" id="name" wire:model="form.name" required autocomplete="name" autofocus class="block w-full mt-2 py-1 px-2 border border-gray-400 rounded-md shadow-sm outline-none focus:border-sky-500 focus:ring-sky-500">
 			@error('form.name')<span class="text-xs text-red-600">{{ $message }}</span>@enderror
 		</div>
 		<div>
