@@ -3,6 +3,8 @@
 namespace Domain\Card\Models;
 
 use Domain\Timelog\Models\Timelog;
+use Domain\Timelog\ValueObject\ElapsedTime;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Auth;
@@ -38,5 +40,12 @@ class Card extends Model
     public function isCurrent(): bool
     {
         return Auth::user()->current_card_id === $this->id;
+    }
+
+    public function elapsedTime(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => ElapsedTime::fromSeconds($this->spent_seconds),
+        );
     }
 }
