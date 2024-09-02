@@ -30,5 +30,7 @@ module.exports = {
 	safelist: [
 		'active',
 	],
-  plugins: [],
+  plugins: [
+		require('preline/plugin'),
+	],
 }
