@@ -13,5 +13,5 @@ class CardForm extends Form
     public string $name;
 
     #[Validate(['nullable', 'string', 'min:3'])]
-    public string $description;
+    public ?string $description;
 }
