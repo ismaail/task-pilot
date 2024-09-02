@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Auth;
 use Support\Models\Concerns\HasFactory;
+use Support\Models\Scopes\SortedScope;
 
 /**
  * @mixin IdeHelperCard
@@ -16,6 +17,7 @@ use Support\Models\Concerns\HasFactory;
 class Card extends Model
 {
     use HasFactory;
+    use SortedScope;
 
     protected $fillable = [
         'name',
