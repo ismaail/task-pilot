@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire\Card\Forms;
 
 use Livewire\Attributes\Validate;
@@ -11,5 +13,5 @@ class CardForm extends Form
     public string $name;
 
     #[Validate(['nullable', 'string', 'min:3'])]
-    public string $description;
+    public ?string $description;
 }

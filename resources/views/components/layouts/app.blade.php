@@ -21,5 +21,6 @@
 		{{ $slot }}
 	</div>
 	@livewire('wire-elements-modal')
+	@vite('resources/assets/js/app.js')
 </body>
 </html>
