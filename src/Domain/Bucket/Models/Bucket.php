@@ -8,7 +8,6 @@ use Domain\Card\Models\Card;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Support\Models\Concerns\HasFactory;
-use Support\Models\Scopes\SortedScope;
 
 /**
  * @mixin IdeHelperBucket
@@ -16,7 +15,6 @@ use Support\Models\Scopes\SortedScope;
 class Bucket extends Model
 {
     use HasFactory;
-    use SortedScope;
 
     protected $fillable = [
         'name',
