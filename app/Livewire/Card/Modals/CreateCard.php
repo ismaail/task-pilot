@@ -36,7 +36,6 @@ class CreateCard extends ModalComponent
         $this->bucket->cards()->create([
             'name' => $this->form->name,
             'description' => $this->form->description ?? null,
-            'sort' => $this->bucket->cards_count + 1
         ]);
 
         $this->dispatch('closeModal');
