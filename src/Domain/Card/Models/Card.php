@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace Domain\Card\Models;
 
+use Domain\Bucket\Models\Bucket;
 use Domain\Timelog\Models\Timelog;
 use Domain\Timelog\ValueObject\ElapsedTime;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Auth;
 use Spatie\EloquentSortable\Sortable;
@@ -36,6 +38,11 @@ class Card extends Model implements Sortable
             'completed' => 'boolean',
             'archived' => 'boolean',
         ];
+    }
+
+    public function bucket(): BelongsTo
+    {
+        return $this->belongsTo(Bucket::class, 'bucket_id', 'id');
     }
 
     public function timelogs(): HasMany
