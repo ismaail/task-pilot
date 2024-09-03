@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Domain\Timelog\Observers;
 
 use Domain\Card\Models\Card;
