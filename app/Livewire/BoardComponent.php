@@ -21,6 +21,8 @@ class BoardComponent extends Component
 
     public function render(): View
     {
+        $this->dispatch('refresh.preline.dropdown');
+
         return view('livewire.board');
     }
 }
