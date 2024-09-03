@@ -49,6 +49,6 @@ class Board extends Model
 
     public function buckets(): HasMany
     {
-        return $this->hasMany(Bucket::class, '');
+        return $this->hasMany(Bucket::class, 'board_id', 'id');
     }
 }
