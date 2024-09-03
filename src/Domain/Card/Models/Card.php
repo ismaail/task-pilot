@@ -6,6 +6,7 @@ namespace Domain\Card\Models;
 
 use Domain\Timelog\Models\Timelog;
 use Domain\Timelog\ValueObject\ElapsedTime;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -52,5 +53,14 @@ class Card extends Model implements Sortable
         return Attribute::make(
             get: fn () => ElapsedTime::fromSeconds($this->spent_seconds),
         );
+    }
+
+    /**
+     * Overrides SortableTrait
+     */
+    public function buildSortQuery(): Builder
+    {
+        return static::query()
+            ->where('bucket_id', '=', $this->bucket_id);
     }
 }
