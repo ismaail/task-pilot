@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Domain\Bucket\Models;
 
+use Domain\Board\Models\Board;
 use Domain\Card\Models\Card;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
@@ -23,6 +25,11 @@ class Bucket extends Model implements Sortable
         'name',
         'archived',
     ];
+
+    public function board(): BelongsTo
+    {
+        return $this->belongsTo(Board::class, 'board_id', 'id');
+    }
 
     public function cards(): HasMany
     {
