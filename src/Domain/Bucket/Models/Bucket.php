@@ -26,6 +26,6 @@ class Bucket extends Model implements Sortable
 
     public function cards(): HasMany
     {
-        return $this->hasMany(Card::class, 'bucket_id', 'id');
+        return $this->hasMany(Card::class, 'bucket_id', 'id')->ordered();
     }
 }
