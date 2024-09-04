@@ -1,4 +1,6 @@
-<div class="min-h14 px-2 py-2 space-y-0 rounded bg-white shadowxl border-2 border-gray-200 hover:border-secondary/20 text-sm">
+<div
+		x-sort:item="{{ $card->id }}"
+		class="min-h14 px-2 py-2 space-y-0 rounded bg-white shadowxl border-2 border-gray-200 [body:not(.sorting)_&]:hover:border-secondary/20 text-sm">
 	<div class="group w-full flex space-x-2 justify-between items-start">
 		{{--Card Name--}}
 		<span class="line-clamp-3 select-none">{{ $card->name }}</span>

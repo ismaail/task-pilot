@@ -39,7 +39,7 @@ class CreateCard extends ModalComponent
         ]);
 
         $this->dispatch('closeModal');
-        $this->dispatch('$refresh')->to('board-component');
+        $this->dispatch("\$refresh.bucket.{$this->bucket->id}");
     }
 
     public function render(): View

@@ -7,6 +7,11 @@
   resolved "https://registry.yarnpkg.com/@alloc/quick-lru/-/quick-lru-5.2.0.tgz#7bf68b20c0a350f936915fcae06f58e32007ce30"
   integrity sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==
 
+"@alpinejs/sort@^3.14.1":
+  version "3.14.1"
+  resolved "https://registry.yarnpkg.com/@alpinejs/sort/-/sort-3.14.1.tgz#bb4e75eb3c622765179ccbaafda22d6f0ae2ab58"
+  integrity sha512-6krmTvG181kuoDM74AXE87xwx8uQ7HJwj6Is0mQ3U69U8q9xgiIfv71TkWjtPTmZ6mkWVOgVPLt/VOLU9Mb4Ag==
+
 "@esbuild/aix-ppc64@0.21.5":
   version "0.21.5"
   resolved "https://registry.yarnpkg.com/@esbuild/aix-ppc64/-/aix-ppc64-0.21.5.tgz#c7184a326533fcdf1b8ee0733e21c713b975575f"
