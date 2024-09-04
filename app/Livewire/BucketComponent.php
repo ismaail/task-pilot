@@ -7,8 +7,10 @@ namespace App\Livewire;
 use Domain\Bucket\Models\Bucket;
 use Domain\Card\Models\Card;
 use Illuminate\Contracts\View\View;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
+#[On('$refresh.bucket.{bucket.id}')]
 class BucketComponent extends Component
 {
     public Bucket $bucket;
@@ -44,6 +46,8 @@ class BucketComponent extends Component
 
     public function render(): View
     {
+        $this->dispatch('refresh.preline.dropdown');
+
         return view('livewire.bucket-component');
     }
 }
