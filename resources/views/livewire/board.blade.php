@@ -2,7 +2,10 @@
 	<h1 class="p-4 bg-white/5 rounded text-lg font-semibold text-white">Board: {{ $board->name }}</h1>
 	<div class="flex w-full flex-grow items-start overflow-y-hidden mt-4 space-x-3">
 		@foreach($board->buckets as $bucket)
-			<div class="w-72 p-2 space-y-2 rounded bg-gray-100 max-h-full overflow-y-auto scrollbar" wire:key="{{ 'Bucket::' . $bucket->id }}">
+			<div
+					wire:key="{{ 'Bucket::' . $bucket->id }}"
+					class="w-72 p-2 space-y-2 rounded bg-gray-100 max-h-full overflow-y-auto scrollbar">
+				{{-- Bucket Name & Tasks Count --}}
 				<div class="flex items-start justify-between">
 					{{-- Bucket Title + Cards/ count --}}
 					<h2 class="text-base font-semibold">{{ $bucket->name }}<span class="block text-xs text-gray-600">{{ $bucket->cards->count() }} Tasks</span></h2>
