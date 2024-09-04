@@ -4,7 +4,7 @@
 		@foreach($board->buckets as $bucket)
 			<livewire:bucket-component
 					:bucket="$bucket"
-					wire:key="{{ 'Bucket::' . $bucket->id }}" />
+					:key="'Bucket::' . $bucket->id" />
 		@endforeach
 	</div>
 </div>
