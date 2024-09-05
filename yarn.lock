@@ -283,9 +283,9 @@
   integrity sha512-6UUxd0+SKomjdzuAcp+HAmxw1FlGBnl1v2yEPSabtx4lBfdXHDVsW7+lQkgz9cNFJGY3AWR7+V8P5BqkD9L9nA==
 
 "@tailwindcss/forms@^0.5.6":
-  version "0.5.8"
-  resolved "https://registry.yarnpkg.com/@tailwindcss/forms/-/forms-0.5.8.tgz#1067d82d9562abe3f8de9abfd528965f7fa116a9"
-  integrity sha512-DJs7B7NPD0JH7BVvdHWNviWmunlFhuEkz7FyFxE4japOWYMLl9b1D6+Z9mivJJPWr6AEbmlPqgiFRyLwFB1SgQ==
+  version "0.5.9"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/forms/-/forms-0.5.9.tgz#b495c12575d6eae5865b2cbd9876b26d89f16f61"
+  integrity sha512-tM4XVr2+UVTxXJzey9Twx48c1gcxFStqn1pQz0tRsX8o3DvxhN5oY5pvyAbUx7VTaZxpej4Zzvc6h+1RJBzpIg==
   dependencies:
     mini-svg-data-uri "^1.2.3"
 
@@ -396,9 +396,9 @@ camelcase-css@^2.0.1:
   integrity sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
 
 caniuse-lite@^1.0.30001646:
-  version "1.0.30001655"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001655.tgz#0ce881f5a19a2dcfda2ecd927df4d5c1684b982f"
-  integrity sha512-jRGVy3iSGO5Uutn2owlb5gR6qsGngTw9ZTb4ali9f3glshcNmJ2noam4Mo9zia5P9Dk3jNNydy7vQjuE5dQmfg==
+  version "1.0.30001657"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001657.tgz#29fd504bffca719d1c6b63a1f6f840be1973a660"
+  integrity sha512-DPbJAlP8/BAXy3IgiWmZKItubb3TYGP0WscQQlVGIfT4s/YlFYVuJgyOsQNP7rJRChx/qdMeLJQJP0Sgg2yjNA==
 
 chokidar@^3.5.3:
   version "3.6.0"
@@ -462,9 +462,9 @@ eastasianwidth@^0.2.0:
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
 electron-to-chromium@^1.5.4:
-  version "1.5.13"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.13.tgz#1abf0410c5344b2b829b7247e031f02810d442e6"
-  integrity sha512-lbBcvtIJ4J6sS4tb5TLp1b4LyfCdMkwStzXPyAgVgTRAsep4bvrAGaBOP7ZJtQMNJpSQ9SqG4brWOroNaQtm7Q==
+  version "1.5.15"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.15.tgz#3c969a29b03682db7a3032283ec8be6e75effe50"
+  integrity sha512-Z4rIDoImwEJW+YYKnPul4DzqsWVqYetYVN3XqDmRpgV0mjz0hYTaeeh+8/9CL1bk3AHYmF4freW/NTiVoXA2gA==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
