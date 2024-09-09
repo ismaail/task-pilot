@@ -53,6 +53,7 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
+    'schema_force_https' => env('SCHEMA_FORCE_HTTPS', false),
 
     /*
     |--------------------------------------------------------------------------
