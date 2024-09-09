@@ -2,9 +2,9 @@
 	{{-- Bucket Name & Tasks Count --}}
 	<div class="flex items-start justify-between">
 		{{-- Bucket Title + Cards/ count --}}
-		<div class="flex gap-x-1 items-start">
-			<svg wire:sortable.handle class="mt-0.5 invisiblegroup-hover:visible hover:cursor-move size-5" aria-hidden="true" viewBox="0 0 16 16"><path d="M10 13a1 1 0 100-2 1 1 0 000 2zm-4 0a1 1 0 100-2 1 1 0 000 2zm1-5a1 1 0 11-2 0 1 1 0 012 0zm3 1a1 1 0 100-2 1 1 0 000 2zm1-5a1 1 0 11-2 0 1 1 0 012 0zM6 5a1 1 0 100-2 1 1 0 000 2z"></path></svg>
-			<h2 class="text-base font-semibold">{{ $bucket->name }}<span class="block text-xs text-gray-600">{{ $cards->count() }} Tasks</span></h2>
+		<div class="flex gap-x-0.5 items-start">
+			<x-icons.dragable wire:sortable.handle class="shrink-0 mt-0.5 fill-black text-black hover:cursor-move size-5" aria-hidden="true"></x-icons.dragable>
+			<h2 class="text-base font-semibold">{{ $bucket->name }}<span class="inline-block ml-2 text-xs text-gray-600">({{ $cards->count() }} Tasks)</span></h2>
 		</div>
 		{{-- Create Task Button --}}
 		<button
