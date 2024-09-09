@@ -6,7 +6,7 @@
 			wire:sortable-group="sortCards"
 			class="flex w-full flex-grow items-start overflow-y-hidden mt-4 space-x-3">
 		@foreach($buckets as $bucket)
-			<livewire:bucket-component :key="$bucket->id" :bucket="$bucket" />
+			<livewire:bucket.bucket-component :key="$bucket->id" :bucket="$bucket" />
 		@endforeach
 	</div>
 </div>

@@ -1,6 +1,6 @@
 <?php
 
-use App\Livewire\BoardComponent;
+use App\Livewire\Board\BoardComponent;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {

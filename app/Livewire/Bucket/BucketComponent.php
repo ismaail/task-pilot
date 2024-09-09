@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire;
+namespace App\Livewire\Bucket;
 
 use Domain\Bucket\Models\Bucket;
 use Illuminate\Contracts\View\View;
@@ -20,7 +20,7 @@ class BucketComponent extends Component
     {
         //$this->dispatch('refresh.preline.dropdown');
 
-        return view('livewire.bucket-component')
+        return view('livewire.bucket.bucket-component')
             ->with('cards', $this->bucket->cards()->get());
     }
 }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire;
+namespace App\Livewire\Board;
 
 use Domain\Board\Models\Board;
 use Domain\Bucket\Models\Bucket;
@@ -45,7 +45,7 @@ class BoardComponent extends Component
 
     public function render(): View
     {
-        return view('livewire.board')
+        return view('livewire.board.board-component')
             ->with('buckets', $this->board->buckets()->get());
     }
 }
