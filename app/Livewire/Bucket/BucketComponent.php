@@ -21,6 +21,6 @@ class BucketComponent extends Component
         //$this->dispatch('refresh.preline.dropdown');
 
         return view('livewire.bucket.bucket-component')
-            ->with('cards', $this->bucket->cards()->get());
+            ->with('cards', $this->bucket->cards);
     }
 }

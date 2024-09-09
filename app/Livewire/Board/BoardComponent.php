@@ -19,6 +19,11 @@ class BoardComponent extends Component
     //    'board-updated' => '$refresh',
     //];
 
+    public function mount(): void
+    {
+        $this->board->load(['buckets.cards']);
+    }
+
     public function sortBuckets(array $items): void
     {
         Bucket::setNewOrder(collect($items)->pluck('value'));
@@ -46,6 +51,6 @@ class BoardComponent extends Component
     public function render(): View
     {
         return view('livewire.board.board-component')
-            ->with('buckets', $this->board->buckets()->get());
+            ->with('buckets', $this->board->buckets);
     }
 }
