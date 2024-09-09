@@ -15,9 +15,9 @@ class CardComponent extends Component
 {
     public Card $card;
 
-    //protected $listeners = [
-    //    'card-{card.id}-updated' => '$refresh'
-    //];
+    protected $listeners = [
+        'card-{card.id}-updated' => '$refresh'
+    ];
 
     public function start(): void
     {
@@ -57,8 +57,6 @@ class CardComponent extends Component
             return;
         }
 
-        $this
-            ->dispatch('$refresh.card.' . $currentCard->id)
-            ->to('card.card-component');
+        $this->dispatch("card-{$currentCard->id}-updated");
     }
 }

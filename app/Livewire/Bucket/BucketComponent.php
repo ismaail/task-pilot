@@ -12,13 +12,13 @@ class BucketComponent extends Component
 {
     public Bucket $bucket;
 
-    //protected $listeners = [
-    //    'bucket-{bucket.id}-updated' => '$refresh',
-    //];
+    protected $listeners = [
+        'bucket-{bucket.id}-updated' => '$refresh',
+    ];
 
     public function render(): View
     {
-        //$this->dispatch('refresh.preline.dropdown');
+        $this->dispatch('refresh.preline.dropdown');
 
         return view('livewire.bucket.bucket-component')
             ->with('cards', $this->bucket->cards);
