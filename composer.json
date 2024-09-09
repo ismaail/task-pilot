@@ -13,6 +13,7 @@
         "livewire/livewire": "^3.5",
         "lorisleiva/laravel-actions": "^2.8",
         "spatie/eloquent-sortable": "^4.4",
+        "spatie/laravel-collection-macros": "^7.14",
         "wire-elements/modal": "^2.0"
     },
     "require-dev": {

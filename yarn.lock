@@ -7,11 +7,6 @@
   resolved "https://registry.yarnpkg.com/@alloc/quick-lru/-/quick-lru-5.2.0.tgz#7bf68b20c0a350f936915fcae06f58e32007ce30"
   integrity sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==
 
-"@alpinejs/sort@^3.14.1":
-  version "3.14.1"
-  resolved "https://registry.yarnpkg.com/@alpinejs/sort/-/sort-3.14.1.tgz#bb4e75eb3c622765179ccbaafda22d6f0ae2ab58"
-  integrity sha512-6krmTvG181kuoDM74AXE87xwx8uQ7HJwj6Is0mQ3U69U8q9xgiIfv71TkWjtPTmZ6mkWVOgVPLt/VOLU9Mb4Ag==
-
 "@esbuild/aix-ppc64@0.21.5":
   version "0.21.5"
   resolved "https://registry.yarnpkg.com/@esbuild/aix-ppc64/-/aix-ppc64-0.21.5.tgz#c7184a326533fcdf1b8ee0733e21c713b975575f"
@@ -170,6 +165,13 @@
   dependencies:
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
+
+"@nextapps-be/livewire-sortablejs@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@nextapps-be/livewire-sortablejs/-/livewire-sortablejs-0.4.1.tgz#8446fe169b36958bd4bccc41fd11ded3b2a5304b"
+  integrity sha512-nwx/c/mY9u/SJZPDNWl4eegeLgIs+nD6Ei580ZVTWikxwwialGgpVHeyejwwa2uKj633G0MikJK4NDix7Nz8oA==
+  dependencies:
+    sortablejs "^1.15.1"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -950,6 +952,11 @@ signal-exit@^4.0.1:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-4.1.0.tgz#952188c1cbd546070e2dd20d0f41c0ae0530cb04"
   integrity sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==
+
+sortablejs@^1.15.1:
+  version "1.15.3"
+  resolved "https://registry.yarnpkg.com/sortablejs/-/sortablejs-1.15.3.tgz#033668db5ebfb11167d1249ab88e748f27959e29"
+  integrity sha512-zdK3/kwwAK1cJgy1rwl1YtNTbRmc8qW/+vgXf75A7NHag5of4pyI6uK86ktmQETyWRH7IGaE73uZOOBcGxgqZg==
 
 source-map-js@^1.2.0:
   version "1.2.0"

@@ -9,13 +9,15 @@ use Domain\Card\DataObjects\CurrentCardDataObject;
 use Domain\Card\Models\Card;
 use Domain\Timelog\Actions\CreateTimelogAction;
 use Illuminate\Contracts\View\View;
-use Livewire\Attributes\On;
 use Livewire\Component;
 
-#[On('$refresh.card.{card.id}')]
 class CardComponent extends Component
 {
     public Card $card;
+
+    //protected $listeners = [
+    //    'card-{card.id}-updated' => '$refresh'
+    //];
 
     public function start(): void
     {
