@@ -5,20 +5,47 @@ declare(strict_types=1);
 namespace App\Livewire;
 
 use Domain\Board\Models\Board;
+use Domain\Bucket\Models\Bucket;
+use Domain\Card\Models\Card;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Collection;
 use Livewire\Component;
 
 class BoardComponent extends Component
 {
     public Board $board;
 
-    public function mount(Board $board): void
+    //protected $listeners = [
+    //    'board-updated' => '$refresh',
+    //];
+
+    public function sortBuckets(array $items): void
     {
-        $board->load(['buckets.cards']);
+        Bucket::setNewOrder(collect($items)->pluck('value'));
+    }
+
+    public function sortCards(array $items): void
+    {
+        collect($items)->recursive()->each(function (Collection $bucketItem) {
+            /** @var Collection $cardItems */
+            $cardItems = $bucketItem->get('items');
+
+            if ($cardItems->isEmpty()) {
+                return;
+            }
+
+            // Adjust Cards if moved to new Bucket
+            Card::query()
+                ->whereIn('id', $cardItems->pluck('value'))
+                ->update(['bucket_id' => $bucketItem->get('value')]);
+
+            Card::setNewOrder($cardItems->pluck('value'));
+        });
     }
 
     public function render(): View
     {
-        return view('livewire.board');
+        return view('livewire.board')
+            ->with('buckets', $this->board->buckets()->get());
     }
 }

@@ -1,8 +1,11 @@
-<div class="w-72 p-2 space-y-2 rounded bg-gray-100 max-h-full overflow-y-auto scrollbar">
+<div wire:sortable.item="{{ $bucket->id }}" class="w-72 p-2 space-y-2 rounded bg-gray-100 max-h-full overflow-y-auto scrollbar">
 	{{-- Bucket Name & Tasks Count --}}
 	<div class="flex items-start justify-between">
 		{{-- Bucket Title + Cards/ count --}}
-		<h2 class="text-base font-semibold">{{ $bucket->name }}<span class="block text-xs text-gray-600">{{ $bucket->cards->count() }} Tasks</span></h2>
+		<div class="flex gap-x-1 items-start">
+			<svg wire:sortable.handle class="mt-0.5 invisiblegroup-hover:visible hover:cursor-move size-5" aria-hidden="true" viewBox="0 0 16 16"><path d="M10 13a1 1 0 100-2 1 1 0 000 2zm-4 0a1 1 0 100-2 1 1 0 000 2zm1-5a1 1 0 11-2 0 1 1 0 012 0zm3 1a1 1 0 100-2 1 1 0 000 2zm1-5a1 1 0 11-2 0 1 1 0 012 0zM6 5a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+			<h2 class="text-base font-semibold">{{ $bucket->name }}<span class="block text-xs text-gray-600">{{ $bucket->cards->count() }} Tasks</span></h2>
+		</div>
 		{{-- Create Task Button --}}
 		<button
 			wire:click="$dispatch('openModal', { component: 'card.modals.create-card', arguments: { bucket: {{ $bucket->id }} } })"
@@ -10,15 +13,12 @@
 			title="Add New Task"
 		>&plus;</button>
 	</div>
+	{{-- Cards --}}
 	<div
-		x-sort.ghost="$wire.sort($item, $position)"
-		x-sort:group="bucket"
+		wire:sortable-group.item-group="{{ $bucket->id }}"
 		class="space-y-2 min-h-16">
-		@foreach($bucket->cards as $card)
-			<livewire:card.card-component
-				:card="$card"
-				:key="'Card::' . $card->id"
-			></livewire:card.card-component>
+		@foreach($cards as $card)
+			<livewire:card.card-component :key="$card->id" :card="$card" />
 		@endforeach
 	</div>
 </div>

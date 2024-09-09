@@ -1,9 +1,12 @@
 <div
-		x-sort:item="{{ $card->id }}"
+		wire:sortable-group.item="{{ $card->id }}"
 		class="min-h14 px-2 py-2 space-y-0 rounded bg-white shadowxl border-2 border-gray-200 [body:not(.sorting)_&]:hover:border-secondary/20 text-sm">
 	<div class="group w-full flex space-x-2 justify-between items-start">
 		{{--Card Name--}}
-		<span class="line-clamp-3 select-none">{{ $card->name }}</span>
+		<div class="flex items-center">
+			<svg wire:sortable-group.handle class="mt-0.5 invisiblegroup-hover:visible hover:cursor-move size-5" aria-hidden="true" viewBox="0 0 16 16"><path d="M10 13a1 1 0 100-2 1 1 0 000 2zm-4 0a1 1 0 100-2 1 1 0 000 2zm1-5a1 1 0 11-2 0 1 1 0 012 0zm3 1a1 1 0 100-2 1 1 0 000 2zm1-5a1 1 0 11-2 0 1 1 0 012 0zM6 5a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+			<span class="line-clamp-3 select-none">{{ $card->name }}</span>
+		</div>
 		{{--Run Task Button--}}
 		@if ($card->isCurrent())
 			<button
