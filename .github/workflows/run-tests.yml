@@ -18,7 +18,6 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
         php: [ 8.3 ]
-        stability: [ prefer-lowest, prefer-stable ]
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
@@ -40,7 +39,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer install --${{ matrix.stability }} --prefer-dist --no-interaction
+          composer install --prefer-dist --no-interaction
 
       - name: List Installed Dependencies
         run: composer show -D
