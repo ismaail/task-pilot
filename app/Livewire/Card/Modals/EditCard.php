@@ -25,7 +25,7 @@ class EditCard extends ModalComponent
         ]);
 
         $this->dispatch('closeModal');
-        $this->dispatch("\$refresh.card.{$this->card->id}");
+        $this->dispatch("card-{$this->card->id}-updated");
     }
 
     public function render(): View
