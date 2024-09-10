@@ -4,6 +4,8 @@ The primary goal of **Task Pilot** is to track time spent on a projet.
  
 This project is build with **Laravel Livewire** & **Alpinejs**.
 
+[![run-tests](https://github.com/ismaail/task-pilot/actions/workflows/run-tests.yml/badge.svg)](https://github.com/ismaail/task-pilot/actions/workflows/run-tests.yml)
+
 <br>
 
 ![board!](/docs/assets/board.png)
