@@ -15,8 +15,8 @@ readonly class ElapsedTime
 
     public static function fromSeconds(int $seconds): self
     {
-        $hours = (int)round($seconds / 3600);
-        $minutes = (int)(($seconds % 3600) / 60);
+        $hours = (int)floor($seconds / 3600);
+        $minutes = (int)floor(($seconds % 3600) / 60);
 
         return new self(
             hours: ($hours > 0) ? $hours : 0,
