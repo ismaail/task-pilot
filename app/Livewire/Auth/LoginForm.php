@@ -14,4 +14,7 @@ class LoginForm extends Form
 
     #[Validate(['required', 'string'])]
     public string $password;
+
+    #[Validate(['nullable', 'bool'])]
+    public bool $remember = false;
 }

@@ -20,7 +20,12 @@ class LoginComponent extends Component
 
         $this->validate();
 
-        if (Auth::attempt(credentials: ['email' => $this->form->email, 'password' => $this->form->password])) {
+        $attempt = Auth::attempt(
+            credentials: ['email' => $this->form->email, 'password' => $this->form->password],
+            remember: $this->form->remember,
+        );
+
+        if ($attempt) {
             $this->redirect('/boards/1'); // @TODO: Remove hardcoded redirect url.
         } else {
             $this->failedAttempt = true;

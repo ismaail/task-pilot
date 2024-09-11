@@ -28,6 +28,12 @@
 				@error('form.password')<span class="text-xs text-red-500">{{ $message }}</span>@enderror
 			</div>
 		</div>
+		<div class="flex items-center justify-between gap-x-3">
+			<label class="inline-flex items-center gap-x-3" for="data.remember">
+				<input type="checkbox" id="data.remember" wire:loading.attr="disabled" wire:model="form.remember">
+				<span class="text-sm text-white">Remember me</span>
+			</label>
+		</div>
 		<div>
 			<button type="submit" class="group flex w-full justify-center rounded-md bg-secondary px-3 py-1.5 text-sm font-semibold leading-6 text-white hover:text-secondary shadow-sm hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 border-2 border-white">
 				<span wire:loading.class="hidden">Sign in</span>
