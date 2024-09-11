@@ -17,4 +17,15 @@ class LoginForm extends Form
 
     #[Validate(['nullable', 'bool'])]
     public bool $remember = false;
+
+    /**
+     * @return array{email: string, password: string}
+     */
+    public function getCredentials(): array
+    {
+        return [
+            'email' => $this->email,
+            'password' => $this->password,
+        ];
+    }
 }
