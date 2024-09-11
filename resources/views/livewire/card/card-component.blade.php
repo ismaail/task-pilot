@@ -1,7 +1,7 @@
 <div
 		wire:sortable-group.item="{{ $card->id }}"
-		class="min-h14 px-2 py-2 space-y-0 rounded bg-white shadowxl border-2 border-gray-200 [body:not(.sorting)_&]:hover:border-secondary/20 text-sm">
-	<div class="group w-full flex space-x-2 justify-between items-start">
+		class="group min-h14 px-2 py-2 space-y-0 rounded bg-white shadowxl border-2 border-gray-200 [body:not(.sorting)_&]:hover:border-secondary/20 text-sm">
+	<div class="w-full flex space-x-2 justify-between items-start">
 		{{--Card Name--}}
 		<div class="flex items-start">
 			<x-icons.dragable wire:sortable-group.handle class="shrink-0 fill-black text-black hover:cursor-move size-5" aria-hidden="true"></x-icons.dragable>
@@ -11,7 +11,7 @@
 		@if ($card->isCurrent())
 			<button
 					wire:click="stop"
-					class="mt-0.5 invisiblee group-hover:visible fill-blue-500 hover:fill-red-500 text-blue-600 hover:text-red-600" title="Stop">
+					class="mt-0.5 fill-blue-500 hover:fill-red-500 text-blue-600 hover:text-red-600" title="Stop">
 				<x-icons.stop class="size-5"></x-icons.stop>
 			</button>
 		@else
