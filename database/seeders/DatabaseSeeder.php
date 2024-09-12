@@ -30,6 +30,6 @@ class DatabaseSeeder extends Seeder
                     ['name' => 'Done', 'sort' => 4],
                 )
                 ->has(Card::factory(random_int(3, 10))))
-            ->create();
+            ->create(['name' => 'Example']);
     }
 }
