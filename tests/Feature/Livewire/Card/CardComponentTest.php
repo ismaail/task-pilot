@@ -9,7 +9,7 @@ use Domain\Card\Models\Card;
 use Domain\User\Models\User;
 use Livewire\Livewire;
 
-it('renders the board component', function () {
+it('Deletes a Card', function () {
     $user = User::factory()->create();
 
     $card = Card::factory()
