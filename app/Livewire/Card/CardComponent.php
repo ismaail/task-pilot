@@ -43,6 +43,15 @@ class CardComponent extends Component
         $this->refreshCard($currentCard);
     }
 
+    public function delete(): void
+    {
+        $bucketId = $this->card->bucket_id;
+
+        $this->card->delete();
+
+        $this->dispatch("bucket-$bucketId-updated");
+    }
+
     public function render(): View
     {
         return view('livewire.card.card-component');

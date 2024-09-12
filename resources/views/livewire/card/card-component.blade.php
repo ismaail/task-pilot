@@ -38,13 +38,16 @@
 					{{--style="position: fixed; inset: 0 auto auto 0; margin: 0; transform: translate(258px, 270px); display: block; opacity: 1"--}}
 					class="hs-dropdown-menu z-10 transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-1 space-y-0.5 mt-2 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full" role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-default">
 				<button
-					wire:click="$dispatch('openModal', { component: 'card.modals.edit-card', arguments: { card: {{ $card->id }} } })"
+						wire:click="$dispatch('openModal', { component: 'card.modals.edit-card', arguments: { card: {{ $card->id }} } })"
 						class="dropdown-button">
 					<x-icons.pencil class="size-4 fill-transparent"></x-icons.pencil>
 					<span>Edit</span>
 				</button>
 				<hr class="h-0.5 border-t-0 bg-neutral-100 dark:bg-white/10">
-				<button class="dropdown-button">
+				<button
+						wire:click="delete"
+						wire:confirm="Are you sure to delete this Card ?"
+						class="dropdown-button">
 					<x-icons.trash class="size-4 fill-transparent"></x-icons.trash>
 					<span>Delete</span>
 				</button>
