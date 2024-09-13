@@ -20,6 +20,7 @@
 	<div class="flex flex-grow w-full overflow-y-hidden">
 		{{ $slot }}
 	</div>
+	<x-utils.notice />
 	@livewire('wire-elements-modal')
 	@vite('resources/assets/js/app.js')
 </body>
