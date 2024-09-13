@@ -23,5 +23,6 @@
 	<x-utils.notice />
 	@livewire('wire-elements-modal')
 	@vite('resources/assets/js/app.js')
+	@stack('javascript')
 </body>
 </html>
