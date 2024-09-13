@@ -10,9 +10,12 @@ use Domain\Card\Models\Card;
 use Domain\Timelog\Actions\CreateTimelogAction;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
+use Support\Helpers\Concerns\UseNotice;
 
 class CardComponent extends Component
 {
+    use UseNotice;
+
     public Card $card;
 
     protected $listeners = [
@@ -30,6 +33,7 @@ class CardComponent extends Component
         }
 
         $this->refreshCard($currentCard);
+        $this->success('Task started successfully.');
     }
 
     public function stop(): void
@@ -41,6 +45,7 @@ class CardComponent extends Component
         CreateTimelogAction::run($currentCard);
 
         $this->refreshCard($currentCard);
+        $this->success('Task Stoped successfully.');
     }
 
     public function delete(): void
@@ -50,6 +55,7 @@ class CardComponent extends Component
         $this->card->delete();
 
         $this->dispatch("bucket-$bucketId-updated");
+        $this->success('Task Deleted successfully.');
     }
 
     public function render(): View

@@ -8,3 +8,7 @@ window.addEventListener('refresh.preline.dropdown', () => {
 
 	setTimeout(() => HSDropdown.autoInit(), 1000);
 });
+
+window.addEventListener('notice.add', (event) => {
+	Livewire.dispatch('notice', event.detail[0]);
+});
