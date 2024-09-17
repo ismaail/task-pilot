@@ -2,7 +2,10 @@
 <div>
 	<div
 		x-data="noticesHandler()"
-		class="fixed right-0 left-auto inset-0 flex flex-col-reverse items-end justify-start p-4 space-y-4 h-screen w-0"
+		@class([
+			'fixed right-0 left-auto inset-0 flex items-end justify-start p-4 space-y-4 h-screen w-0',
+			$position,
+		])
 		@notice.window="add($event.detail)"
 		style="pointer-events:none">
 		<template x-for="notice of notices" :key="notice.id">
@@ -39,6 +42,9 @@
 
 @push('javascript')
 	<script>
+		const autoClose = {{ $autoClose ? 'true' : 'false' }} ;
+		const timeClose = {{ $timeClose }};
+
 		function noticesHandler() {
 			return {
 				notices: [],
@@ -50,7 +56,10 @@
 				},
 				fire(id) {
 					this.visible.push(this.notices.find(notice => notice.id === id));
-					const timeShown = 5000 * this.visible.length;
+
+					if (! autoClose) return;
+
+					const timeShown = timeClose * this.visible.length;
 					setTimeout(() => {
 						this.remove(id)
 					}, timeShown);
