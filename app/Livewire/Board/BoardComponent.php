@@ -15,10 +15,6 @@ class BoardComponent extends Component
 {
     public Board $board;
 
-    //protected $listeners = [
-    //    'board-updated' => '$refresh',
-    //];
-
     public function mount(): void
     {
         $this->board->load(['buckets.cards']);
