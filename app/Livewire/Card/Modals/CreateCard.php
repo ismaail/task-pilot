@@ -27,7 +27,7 @@ class CreateCard extends ModalComponent
         return false;
     }
 
-    public function create()
+    public function create(): void
     {
         $this->validate();
 

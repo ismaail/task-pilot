@@ -12,6 +12,9 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
  */
 class BoardMember extends Pivot
 {
+    /**
+     * @return array<string, string>
+     */
     protected function casts(): array
     {
         return [

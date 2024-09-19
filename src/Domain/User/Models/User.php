@@ -16,6 +16,7 @@ use Support\Models\Concerns\HasFactory;
  */
 class User extends Authenticatable
 {
+    /** @use HasFactory<\Database\Factories\User\UserFactory> */
     use HasFactory;
     use Notifiable;
 
@@ -56,6 +57,9 @@ class User extends Authenticatable
         ];
     }
 
+    /**
+     * @return HasOne<Card>
+     */
     public function currentCard(): HasOne
     {
         return $this->hasOne(Card::class, 'id', 'current_card_id');

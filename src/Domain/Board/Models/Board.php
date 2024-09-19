@@ -16,6 +16,7 @@ use Support\Models\Concerns\HasFactory;
  */
 class Board extends Model
 {
+    /** @use HasFactory<\Database\Factories\Board\BoardFactory> */
     use HasFactory;
 
     protected $table = 'boards';
@@ -26,6 +27,9 @@ class Board extends Model
         'archived',
     ];
 
+    /**
+     * @return array<string, string>
+     */
     protected function casts(): array
     {
         return [
@@ -33,6 +37,9 @@ class Board extends Model
         ];
     }
 
+    /**
+     * @return BelongsToMany<User>
+     */
     public function members(): BelongsToMany
     {
         return $this->belongsToMany(
@@ -47,6 +54,9 @@ class Board extends Model
             ;
     }
 
+    /**
+     * @return HasMany<Bucket>
+     */
     public function buckets(): HasMany
     {
         return $this->hasMany(Bucket::class, 'board_id', 'id')->ordered();
