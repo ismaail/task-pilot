@@ -16,6 +16,7 @@ use Support\Models\Concerns\HasFactory;
  */
 class Board extends Model
 {
+    /** @use HasFactory<\Database\Factories\Board\BoardFactory> */
     use HasFactory;
 
     protected $table = 'boards';

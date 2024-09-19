@@ -6,12 +6,16 @@ namespace Support\Models\Concerns;
 
 use Illuminate\Support\Str;
 
+/**
+ * @template TFactory of \Illuminate\Database\Eloquent\Factories\Factory
+ */
 trait HasFactory
 {
+    /** @use \Illuminate\Database\Eloquent\Factories\HasFactory<TFactory> */
     use \Illuminate\Database\Eloquent\Factories\HasFactory;
 
     /**
-     * @return \Illuminate\Database\Eloquent\Factories\Factory<static>
+     * @return TFactory|null
      */
     protected static function newFactory()
     {

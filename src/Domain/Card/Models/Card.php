@@ -22,6 +22,7 @@ use Support\Models\Concerns\HasFactory;
  */
 class Card extends Model implements Sortable
 {
+    /** @use HasFactory<\Database\Factories\Card\CardFactory> */
     use HasFactory;
     use SortableTrait;
 

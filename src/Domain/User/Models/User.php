@@ -16,6 +16,7 @@ use Support\Models\Concerns\HasFactory;
  */
 class User extends Authenticatable
 {
+    /** @use HasFactory<\Database\Factories\User\UserFactory> */
     use HasFactory;
     use Notifiable;
 
