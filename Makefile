@@ -1,4 +1,4 @@
-.PHONY: up start stop down log artisan migrate migrate\:fresh migrate\:rollback scrap phone import composer composer\:update supervisor-update permissions\:fix fpm-reload ide-helper tests deploy yarn nginx-check nginx-reload pm2\:start pm2\:restart pm2\:stop pm2\:delete postgres\:fix
+.PHONY: up start stop down log artisan migrate migrate\:fresh migrate\:rollback scrap phone import composer composer\:update supervisor-update permissions\:fix fpm-reload ide-helper tests deploy yarn nginx-check nginx-reload debug\:enable debug\:disable debug\:coverage pm2\:start pm2\:restart pm2\:stop pm2\:delete postgres\:fix
 
 include .env
 
@@ -163,6 +163,11 @@ debug\:enable:
 debug\:disable:
 	echo ";xdebug.mode = develop,debug" > ./.docker/php/custom.ini && \
 	docker exec -it $(CONTAINER_FPM) kill -USR2 1
+
+debug\:coverage:
+		echo -e "xdebug.mode = develop,debug,coverage" > ./.docker/php/custom.ini && \
+		docker exec -it $(CONTAINER_FPM) kill -USR2 1
+
 
 pm2\:start:
 	pm2 start pm2.yml
