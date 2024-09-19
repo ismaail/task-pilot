@@ -7775,16 +7775,16 @@
         },
         {
             "name": "pestphp/pest",
-            "version": "v3.0.8",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest.git",
-                "reference": "1b014e4b186b81cd68130ca2b9d1026185481c40"
+                "reference": "5de0c2254ad8ef3271e0b9fa363772e43d6559b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest/zipball/1b014e4b186b81cd68130ca2b9d1026185481c40",
-                "reference": "1b014e4b186b81cd68130ca2b9d1026185481c40",
+                "url": "https://api.github.com/repos/pestphp/pest/zipball/5de0c2254ad8ef3271e0b9fa363772e43d6559b1",
+                "reference": "5de0c2254ad8ef3271e0b9fa363772e43d6559b1",
                 "shasum": ""
             },
             "require": {
@@ -7793,7 +7793,7 @@
                 "nunomaduro/termwind": "^2.1.0",
                 "pestphp/pest-plugin": "^3.0.0",
                 "pestphp/pest-plugin-arch": "^3.0.0",
-                "pestphp/pest-plugin-mutate": "^3.0.3",
+                "pestphp/pest-plugin-mutate": "^3.0.4",
                 "php": "^8.2.0",
                 "phpunit/phpunit": "^11.3.6"
             },
@@ -7870,7 +7870,7 @@
             ],
             "support": {
                 "issues": "https://github.com/pestphp/pest/issues",
-                "source": "https://github.com/pestphp/pest/tree/v3.0.8"
+                "source": "https://github.com/pestphp/pest/tree/v3.1.0"
             },
             "funding": [
                 {
@@ -7882,7 +7882,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-09-19T12:04:42+00:00"
+            "time": "2024-09-19T22:39:07+00:00"
         },
         {
             "name": "pestphp/pest-plugin",
@@ -8026,26 +8026,26 @@
         },
         {
             "name": "pestphp/pest-plugin-mutate",
-            "version": "v3.0.3",
+            "version": "v3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest-plugin-mutate.git",
-                "reference": "d83a5e106c92ea0ebf928eefbe4a57f028adf468"
+                "reference": "33782fe8a373077b86b0c92b885896d8eacc138d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest-plugin-mutate/zipball/d83a5e106c92ea0ebf928eefbe4a57f028adf468",
-                "reference": "d83a5e106c92ea0ebf928eefbe4a57f028adf468",
+                "url": "https://api.github.com/repos/pestphp/pest-plugin-mutate/zipball/33782fe8a373077b86b0c92b885896d8eacc138d",
+                "reference": "33782fe8a373077b86b0c92b885896d8eacc138d",
                 "shasum": ""
             },
             "require": {
-                "nikic/php-parser": "^5.1.0",
+                "nikic/php-parser": "^5.2.0",
                 "pestphp/pest-plugin": "^3.0.0",
                 "php": "^8.2",
                 "psr/simple-cache": "^3.0.0"
             },
             "require-dev": {
-                "pestphp/pest": "^3.0.1",
+                "pestphp/pest": "^3.0.8",
                 "pestphp/pest-dev-tools": "^3.0.0",
                 "pestphp/pest-plugin-type-coverage": "^3.0.0"
             },
@@ -8078,7 +8078,7 @@
                 "unit"
             ],
             "support": {
-                "source": "https://github.com/pestphp/pest-plugin-mutate/tree/v3.0.3"
+                "source": "https://github.com/pestphp/pest-plugin-mutate/tree/v3.0.4"
             },
             "funding": [
                 {
@@ -8094,7 +8094,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-09-10T15:59:08+00:00"
+            "time": "2024-09-19T21:50:52+00:00"
         },
         {
             "name": "phar-io/manifest",
