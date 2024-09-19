@@ -1,0 +1,39 @@
+includes:
+	- vendor/larastan/larastan/extension.neon
+
+parameters:
+	phpVersion: 80300 # PHP 8.3
+
+	paths:
+		- app
+		- src
+#		- stubs/IdeHelper.php
+#		- stubs/ModelHelper.php
+#		- stubs/ExtraHelper.php
+
+	excludePaths:
+		analyse:
+			- stubs
+
+	scanFiles:
+#		- stubs/IdeHelper.php
+		- stubs/ModelHelper.php
+#		- stubs/ExtraHelper.php
+
+	# Level 9 is the highest level
+	level: 6
+
+	reportUnmatchedIgnoredErrors: false
+
+	ignoreErrors:
+		- '#^PHPDoc tag @mixin contains unknown class#'
+
+#    excludePaths:
+#        - ./*/*/FileToBeExcluded.php
+#
+#    checkMissingIterableValueType: false
+
+	parallel:
+		jobSize: 20
+		maximumNumberOfProcesses: 6
+		minimumNumberOfJobsPerProcess: 2
