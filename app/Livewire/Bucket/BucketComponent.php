@@ -12,6 +12,9 @@ class BucketComponent extends Component
 {
     public Bucket $bucket;
 
+    /**
+     * @var array<string, string>
+     */
     protected $listeners = [
         'bucket-{bucket.id}-updated' => '$refresh',
     ];

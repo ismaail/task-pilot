@@ -23,6 +23,9 @@ class Timelog extends Model
         'elapsed_seconds',
     ];
 
+    /**
+     * @return array<string, string>
+     */
     protected function casts(): array
     {
         return [
@@ -33,6 +36,9 @@ class Timelog extends Model
 
     public $timestamps = false;
 
+    /**
+     * @return BelongsTo<Card, Timelog>
+     */
     public function card(): BelongsTo
     {
         return $this->belongsTo(Card::class, 'card_id', 'id');

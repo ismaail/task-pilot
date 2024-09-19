@@ -18,6 +18,9 @@ class CardComponent extends Component
 
     public Card $card;
 
+    /**
+     * @var array<string, string>
+     */
     protected $listeners = [
         'card-{card.id}-updated' => '$refresh'
     ];

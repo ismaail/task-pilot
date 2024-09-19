@@ -56,6 +56,9 @@ class User extends Authenticatable
         ];
     }
 
+    /**
+     * @return HasOne<Card>
+     */
     public function currentCard(): HasOne
     {
         return $this->hasOne(Card::class, 'id', 'current_card_id');

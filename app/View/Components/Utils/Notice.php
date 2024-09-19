@@ -10,6 +10,9 @@ use Illuminate\View\Component;
 
 class Notice extends Component
 {
+    /**
+     * @var array<string, string> $positions
+     */
     private array $positions = [
         'bottom-right' => 'flex-col-reverse',
         'top-right' => 'flex-col',

@@ -32,6 +32,9 @@ class Card extends Model implements Sortable
         'spent_seconds',
     ];
 
+    /**
+     * @return array<string, string>
+     */
     protected function casts(): array
     {
         return [
@@ -40,11 +43,17 @@ class Card extends Model implements Sortable
         ];
     }
 
+    /**
+     * @return BelongsTo<Bucket, Card>
+     */
     public function bucket(): BelongsTo
     {
         return $this->belongsTo(Bucket::class, 'bucket_id', 'id');
     }
 
+    /**
+     * @return HasMany<Timelog>
+     */
     public function timelogs(): HasMany
     {
         return $this->hasMany(Timelog::class, 'card_id', 'id');
@@ -55,6 +64,9 @@ class Card extends Model implements Sortable
         return Auth::user()->current_card_id === $this->id;
     }
 
+    /**
+     * @return Attribute<ElapsedTime, null>
+     */
     public function elapsedTime(): Attribute
     {
         return Attribute::make(
@@ -63,7 +75,7 @@ class Card extends Model implements Sortable
     }
 
     /**
-     * Overrides SortableTrait
+     * @return Builder<Card>
      */
     public function buildSortQuery(): Builder
     {

@@ -20,15 +20,21 @@ class BoardComponent extends Component
         $this->board->load(['buckets.cards']);
     }
 
+    /**
+     * @param array<array{order: int, value: numeric-string}> $items
+     */
     public function sortBuckets(array $items): void
     {
         Bucket::setNewOrder(collect($items)->pluck('value'));
     }
 
+    /**
+     * @param array<array{order: int, value: numeric-string, items: array<array{order: int, value: numeric-string}>}> $items
+     */
     public function sortCards(array $items): void
     {
         collect($items)->recursive()->each(function (Collection $bucketItem) {
-            /** @var Collection $cardItems */
+            /** @var Collection<int, array{order: int, value: numeric-string}> $cardItems */
             $cardItems = $bucketItem->get('items');
 
             if ($cardItems->isEmpty()) {

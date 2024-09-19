@@ -26,6 +26,9 @@ class Board extends Model
         'archived',
     ];
 
+    /**
+     * @return array<string, string>
+     */
     protected function casts(): array
     {
         return [
@@ -33,6 +36,9 @@ class Board extends Model
         ];
     }
 
+    /**
+     * @return BelongsToMany<User>
+     */
     public function members(): BelongsToMany
     {
         return $this->belongsToMany(
@@ -47,6 +53,9 @@ class Board extends Model
             ;
     }
 
+    /**
+     * @return HasMany<Bucket>
+     */
     public function buckets(): HasMany
     {
         return $this->hasMany(Bucket::class, 'board_id', 'id')->ordered();
