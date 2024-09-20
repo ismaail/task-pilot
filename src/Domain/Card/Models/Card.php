@@ -62,7 +62,7 @@ class Card extends Model implements Sortable
 
     public function isCurrent(): bool
     {
-        return Auth::user()->current_card_id === $this->id;
+        return Auth::user()?->current_card_id === $this->id;
     }
 
     /**
