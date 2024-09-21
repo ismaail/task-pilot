@@ -9,7 +9,7 @@ use Livewire\Form;
 
 class CardForm extends Form
 {
-    #[Validate(['required', 'string', 'min:5', 'max:255'])]
+    #[Validate(['required', 'string', 'min:3', 'max:255'])]
     public string $name;
 
     #[Validate(['nullable', 'string', 'min:3'])]
