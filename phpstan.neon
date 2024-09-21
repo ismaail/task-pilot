@@ -14,6 +14,8 @@ parameters:
 	excludePaths:
 		analyse:
 			- stubs
+		analyseAndScan:
+			- "tests/*"
 
 	scanFiles:
 #		- stubs/IdeHelper.php
