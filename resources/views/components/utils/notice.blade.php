@@ -55,7 +55,7 @@
 					this.fire(notice.id);
 				},
 				fire(id) {
-					this.visible.push(this.notices.find(notice => notice.id === id));
+					this.visible.push(this.notices.find((notice) => notice.id === id));
 
 					if (! autoClose) return;
 
@@ -65,7 +65,7 @@
 					}, timeShown);
 				},
 				remove(id) {
-					const notice = this.visible.find(notice => notice.id === id);
+					const notice = this.visible.find((notice) => notice.id === id);
 					const index = this.visible.indexOf(notice);
 					this.visible.splice(index, 1);
 				},
