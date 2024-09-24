@@ -11,7 +11,7 @@
 <body>
 	<nav>
 		<div class="flex flex-wrap items-start justify-between max-w-screen-xl mx-auto p-4">
-			<a href="#" class="flex items-center space-x-2">
+			<a href="{{ route('home') }}" class="flex items-center space-x-2">
 				<img src="{{ asset('images/logo-m.jpg') }}" class="h-8" alt="Task Pilot Logo" />
 				<span class="self-center text-3xl font-semibold whitespace-nowrap text-primary">Task Pilot</span>
 			</a>
