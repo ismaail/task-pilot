@@ -22,7 +22,7 @@ class CardComponent extends Component
      * @var array<string, string>
      */
     protected $listeners = [
-        'card-{card.id}-updated' => '$refresh'
+        'card-{card.id}-updated' => '$refresh',
     ];
 
     public function start(): void
