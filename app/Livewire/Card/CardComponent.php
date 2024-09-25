@@ -22,7 +22,7 @@ class CardComponent extends Component
      * @var array<string, string>
      */
     protected $listeners = [
-        'card-{card.id}-updated' => '$refresh'
+        'card-{card.id}-updated' => '$refresh',
     ];
 
     public function start(): void
@@ -37,6 +37,7 @@ class CardComponent extends Component
 
         $this->refreshCard($currentCard);
         $this->success('Task started successfully.');
+        $this->toggleFavicon(true);
     }
 
     public function stop(): void
@@ -49,6 +50,12 @@ class CardComponent extends Component
 
         $this->refreshCard($currentCard);
         $this->success('Task Stoped successfully.');
+        $this->toggleFavicon(false);
+    }
+
+    private function toggleFavicon(bool $value): void
+    {
+        $this->dispatch('swap-favicon', ['is_busy' => $value]);
     }
 
     public function delete(): void
