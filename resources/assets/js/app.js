@@ -1,10 +1,12 @@
-/* global HSDropdown, Alpine */
+/* global HSDropdown, Livewire */
 
 import 'preline/dist/dropdown';
-import '@nextapps-be/livewire-sortablejs'
+import '@nextapps-be/livewire-sortablejs';
 
 window.addEventListener('refresh.preline.dropdown', () => {
-	if (! HSDropdown) return;
+	if (! HSDropdown) {
+		return;
+	}
 
 	setTimeout(() => HSDropdown.autoInit(), 1000);
 });
