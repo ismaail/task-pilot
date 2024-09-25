@@ -12,6 +12,7 @@
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.5",
         "lorisleiva/laravel-actions": "^2.8",
+        "sentry/sentry-laravel": "^4.9",
         "spatie/eloquent-sortable": "^4.4",
         "spatie/laravel-collection-macros": "^7.14",
         "wire-elements/modal": "^2.0"
