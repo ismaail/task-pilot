@@ -9,6 +9,7 @@ export default defineConfig({
 			input: [
 				'resources/assets/css/app.css',
 				'resources/assets/js/app.js',
+				'resources/assets/js/chart.js',
 			],
 			refresh: [
 				...refreshPaths,
