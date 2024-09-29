@@ -1,4 +1,4 @@
-<div class="mt-4 p-4 min-h-80 bg-white rounded">
+<div class="relative mt-4 p-4 w-full sm:w-[608px] h-auto sm:h-80 bg-white rounded">
 	<canvas id="time-chart" class=""></canvas>
 </div>
 

@@ -13,7 +13,8 @@ const data= {
 		data: timeChart.data,
 		//borderColor: '#022f4e',
 		backgroundColor: '#91c27c',
-		barThickness: 10,
+		//barThickness: 10,
+		barPercentage: 0.8,
 		borderRadius: 4,
 	}]
 };
