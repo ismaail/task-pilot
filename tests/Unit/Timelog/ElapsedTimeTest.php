@@ -25,3 +25,14 @@ it('transforms seconds to elapsed time', function (
     [5700, 1, 35, 0, '01:35:00'],
     [15165, 4, 12, 45, '04:12:45'],
 ]);
+
+it('returns total minutes', function (int $seconds, int $expectedTotalMinutes): void {
+    $elapsedTime = ElapsedTime::fromSeconds($seconds);
+    expect($elapsedTime->totalMinutes())->toBe($expectedTotalMinutes);
+})->with([
+    [30, 0],
+    [60, 1],
+    [150, 2],
+    [180, 3],
+    [200, 3],
+]);
