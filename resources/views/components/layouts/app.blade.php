@@ -14,13 +14,18 @@
 	@vite('resources/assets/css/app.css')
 </head>
 <body>
-	<nav>
-		<div class="flex flex-wrap items-start justify-between max-w-screen-xl mx-auto p-4">
-			<a href="{{ route('home') }}" class="flex items-center space-x-2">
-				<img src="{{ asset('images/logo-m.jpg') }}" class="h-8" alt="Task Pilot Logo" />
-				<span class="self-center text-3xl font-semibold whitespace-nowrap text-primary">Task Pilot</span>
-			</a>
-		</div>
+	<nav class="w-full flex flex-wrap items-center justify-between p-4">
+		<a href="{{ route('home') }}" class="flex items-center space-x-2">
+			<img src="{{ asset('images/logo-m.jpg') }}" class="h-8" alt="Task Pilot Logo" />
+			<span class="self-center text-3xl font-semibold whitespace-nowrap text-primary">Task Pilot</span>
+		</a>
+		{{-- Dropdown Menu --}}
+		<x-utils.dropdown-button>
+			<x-slot name="icon">
+				<img src="{{ asset('images/avatar.png') }}" alt="{{ auth()->user()->name }}" class="size-8 cursor-pointer">
+			</x-slot>
+				<a href="{{ route('profile.timelogs') }}" class="dropdown-button"><span>Timelogs</span></a>
+		</x-utils.dropdown-button>
 	</nav>
 	<div class="flex flex-grow w-full overflow-y-hidden">
 		{{ $slot }}
