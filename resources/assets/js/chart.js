@@ -30,8 +30,11 @@ new Chart($elm, {
 			y: {
 				ticks: {
 					min: 0, max: 240, stepSize: 15,// suggestedMin: 0.5, suggestedMax: 5.5,
-					callback: (seconds) => {
-						return `${seconds} min`;
+					callback: (totalMinutes) => {
+						const hours = Math.floor(totalMinutes / 60);
+						const minutes = totalMinutes % 60;
+
+						return (hours > 0) ? `${hours}H${0 !== minutes ? ` ${minutes}` : ''}` : `${minutes} min`;
 					},
 				},
 			},
