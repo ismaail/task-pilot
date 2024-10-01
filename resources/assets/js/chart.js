@@ -39,5 +39,19 @@ new Chart($elm, {
 				},
 			},
 		},
+		plugins: {
+			tooltip: {
+				callbacks: {
+					/** @see https://www.chartjs.org/docs/latest/configuration/tooltip.html */
+					label: (context) => {
+						const totalMinutes = context.formattedValue;
+						const hours = Math.floor(totalMinutes / 60);
+						const minutes = totalMinutes % 60;
+
+						return (hours > 0) ? ` ${hours}H${0 !== minutes ? ` ${minutes}min` : ''}` : ` ${minutes} min`;
+					},
+				},
+			},
+		},
 	},
 });
