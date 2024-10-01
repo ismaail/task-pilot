@@ -29,6 +29,11 @@ readonly class ElapsedTime
         );
     }
 
+    public function totalMinutes(): int
+    {
+        return ($this->hours * 60) + $this->minutes;
+    }
+
     public function toHuman(): string
     {
         return sprintf('%02d:%02d:%02d', $this->hours, $this->minutes, $this->seconds);
