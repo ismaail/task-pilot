@@ -19,8 +19,10 @@ class TimelogQueryBuilder extends Builder
     /**
      * @return Collection<int, array{day: CarbonImmutable, total_seconds: ?int, elapsed_time: ?ElapsedTime}>
      */
-    public function totalSeconds(CarbonImmutable $from, CarbonImmutable $to, ?int $boardId = null): Collection
+    public function elapsedTimesBetween(CarbonImmutable $from, ?CarbonImmutable $to = null, ?int $boardId = null): Collection
     {
+        $to ??= CarbonImmutable::now()->endOfDay();
+
         $boardIdCondition = when($boardId, "AND boards.id = $boardId", '');
 
         $stmt = <<<SQL

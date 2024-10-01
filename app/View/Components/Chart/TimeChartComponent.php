@@ -20,7 +20,7 @@ class TimeChartComponent extends Component
     {
         $now = CarbonImmutable::now();
 
-        $timelogs = Timelog::totalSeconds(
+        $timelogs = Timelog::elapsedTimesBetween(
             from: $now->subDays(30)->startOfDay(),
             to: $now->endOfDay(),
             boardId: $this->boardId,
