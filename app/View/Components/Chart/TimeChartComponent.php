@@ -26,7 +26,7 @@ class TimeChartComponent extends Component
             to: $now->endOfDay(),
         );
         $labels = $timelogs->pluck('day')->map(fn(CarbonImmutable $d) => $d->format('M d'));
-        $data = $timelogs->pluck('elapsed_time')->map(fn(ElapsedTime $t) => $t->minutes);
+        $data = $timelogs->pluck('elapsed_time')->map(fn(ElapsedTime $t) => $t->totalMinutes());
 
         return view('components.chart.time-chart-component')
             ->with('labels', $labels)
