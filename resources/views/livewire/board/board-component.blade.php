@@ -4,7 +4,7 @@
 		<h1 class="text-lg font-semibold text-white bg">Board: {{ $board->name }}</h1>
 		<x-utils.dropdown-button :dark="true">
 			<a href="{{ route('boards.timelogs', $board->id) }}"
-				class="dropdown-button">
+					class="dropdown-button">
 				<span>Timelogs</span>
 			</a>
 		</x-utils.dropdown-button>
@@ -17,5 +17,8 @@
 		@foreach($buckets as $bucket)
 			<livewire:bucket.bucket-component :key="$bucket->id" :bucket="$bucket" />
 		@endforeach
+			<button class="flex items-center gap-x-1 w-72 p-2 rounded text-white hover:text-primary font-semibold cursor-pointer">
+				<x-icons.plus class="size-5" /> New Bucket
+			</button>
 	</div>
 </div>
