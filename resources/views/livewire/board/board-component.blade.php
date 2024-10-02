@@ -4,7 +4,7 @@
 		<h1 class="text-lg font-semibold text-white bg">Board: {{ $board->name }}</h1>
 		<x-utils.dropdown-button :dark="true">
 			<a href="{{ route('boards.timelogs', $board->id) }}"
-				class="dropdown-button">
+					class="dropdown-button">
 				<span>Timelogs</span>
 			</a>
 		</x-utils.dropdown-button>
