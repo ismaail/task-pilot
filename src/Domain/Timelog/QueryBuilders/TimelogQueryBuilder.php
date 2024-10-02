@@ -56,4 +56,17 @@ class TimelogQueryBuilder extends Builder
                 return $record;
             });
     }
+
+    public function totalTimeBetween(CarbonImmutable $from, ?CarbonImmutable $to = null): ElapsedTime
+    {
+        $to ??= CarbonImmutable::now();
+
+        $result = $this->newQuery()
+            ->select('elapsed_seconds')
+            ->whereBetween('started_at', [$from->startOfDay(), $to->endOfDay()])
+            ->sum('elapsed_seconds')
+            ;
+
+        return ElapsedTime::fromSeconds((int)$result);
+    }
 }
