@@ -4,5 +4,7 @@
 		Timelogs for: {{ $board->name }}
 		<a href="{{ route('boards.show', $board->id) }}" class="text-white text-sm hover:underline">&#x2B8C; Back</a>
 	</h1>
-	<x-chart.time-chart-component :board-id="$board->id" />
+	<main class="mt-4">
+		<x-chart.time-chart-component :board-id="$board->id" />
+	</main>
 </div>

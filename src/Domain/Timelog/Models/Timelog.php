@@ -6,6 +6,7 @@ namespace Domain\Timelog\Models;
 
 use Domain\Card\Models\Card;
 use Domain\Timelog\Observers\TimelogObserver;
+use Domain\Timelog\QueryBuilders\TimelogQueryBuilder;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -35,6 +36,11 @@ class Timelog extends Model
     }
 
     public $timestamps = false;
+
+    public function newEloquentBuilder($query): TimelogQueryBuilder
+    {
+        return new TimelogQueryBuilder($query);
+    }
 
     /**
      * @return BelongsTo<Card, Timelog>

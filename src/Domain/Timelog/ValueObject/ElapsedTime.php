@@ -38,4 +38,16 @@ readonly class ElapsedTime
     {
         return sprintf('%02d:%02d:%02d', $this->hours, $this->minutes, $this->seconds);
     }
+
+    public function toHumanMinimal(): string
+    {
+        if (! $this->seconds) {
+            return '0 min';
+        }
+
+        $hours = $this->hours > 0 ? "{$this->hours}H" : '';
+        $minutes = $this->minutes > 0 ? "{$this->minutes}min" : '';
+
+        return "$hours $minutes";
+    }
 }
