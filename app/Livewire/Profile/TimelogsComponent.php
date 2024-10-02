@@ -17,7 +17,7 @@ class TimelogsComponent extends Component
 
         return view('livewire.profile.timelogs-component', [
             'today' => Timelog::TotalTimeBetween($now),
-            'yesterday' => Timelog::TotalTimeBetween($now->subDay()),
+            'yesterday' => Timelog::TotalTimeBetween($now->subDay(), $now->subDay()),
             'week' => Timelog::TotalTimeBetween($now->startOfWeek()),
             'month' => Timelog::TotalTimeBetween($now->startOfMonth()),
             'last_month' => Timelog::TotalTimeBetween($now->subMonth()->startOfMonth(), $now->subMonth()->endOfMonth()),
