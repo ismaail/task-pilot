@@ -2,6 +2,7 @@
 
 namespace Database\Factories\Bucket;
 
+use Domain\Board\Models\Board;
 use Domain\Bucket\Models\Bucket;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -20,6 +21,7 @@ class BucketFactory extends Factory
     {
         return [
             'name' => Str::title(($this->faker->words(asText: true))),
+            'board_id' => Board::factory(),
         ];
     }
 }

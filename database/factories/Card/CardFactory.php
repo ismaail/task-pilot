@@ -2,6 +2,7 @@
 
 namespace Database\Factories\Card;
 
+use Domain\Bucket\Models\Bucket;
 use Domain\Card\Models\Card;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -20,6 +21,7 @@ class CardFactory extends Factory
     {
         return [
             'name' => Str::title(($this->faker->words(nb: random_int(4, 10), asText: true))),
+            'bucket_id' => Bucket::factory()
         ];
     }
 }
