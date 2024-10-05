@@ -53,6 +53,14 @@ class CardComponent extends Component
         $this->toggleFavicon(false);
     }
 
+    public function archive(): void
+    {
+        $this->card->update(['archived' => true]);
+
+        $this->dispatch("bucket-{$this->card->bucket_id}-updated");
+        $this->success('Task Archived successfully.');
+    }
+
     private function toggleFavicon(bool $value): void
     {
         $this->dispatch('swap-favicon', ['is_busy' => $value]);
