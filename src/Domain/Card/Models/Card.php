@@ -31,6 +31,7 @@ class Card extends Model implements Sortable
         'description',
         'sort',
         'spent_seconds',
+        'archived',
     ];
 
     /**
