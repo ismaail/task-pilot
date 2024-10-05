@@ -8,6 +8,7 @@ use Domain\Board\Models\Board;
 use Domain\Bucket\Models\Bucket;
 use Domain\Card\Models\Card;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 
@@ -17,7 +18,9 @@ class BoardComponent extends Component
 
     public function mount(): void
     {
-        $this->board->load(['buckets.cards']);
+        $this->board->load([
+            'buckets.cards' => fn (HasMany $q) => $q->where('archived', false)  // @todo: can be changed via request query.
+        ]);
     }
 
     /**
