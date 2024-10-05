@@ -41,7 +41,7 @@
 			<button
 					wire:click="delete"
 					wire:confirm="Are you sure to delete this Card ?"
-					class="dropdown-button">
+					class="dropdown-button text-red-500">
 				<x-icons.trash class="size-4 fill-transparent"></x-icons.trash>
 				<span>Delete</span>
 			</button>
