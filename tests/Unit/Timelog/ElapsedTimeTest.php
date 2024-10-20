@@ -36,3 +36,18 @@ it('returns total minutes', function (int $seconds, int $expectedTotalMinutes): 
     [180, 3],
     [200, 3],
 ]);
+
+it('shows time in Human Minimal Format', function (int $seconds, string $expectedTime): void {
+    $elapsedTime = ElapsedTime::fromSeconds($seconds);
+    expect($elapsedTime->toHumanMinimal())->toBe($expectedTime, message: "Wrong Human Minimal Format for '$seconds' seconds.");
+})->with([
+    [0, '0 min'],
+    [59, '0 min'],
+    [60, '1min'],
+    [120, '2min'],
+    [3599, '59min'],
+    [3600, '1H'],
+    [3659, '1H'],
+    [3660, '1H 1min'],
+    [4200, '1H 10min'],
+]);

@@ -41,13 +41,13 @@ readonly class ElapsedTime
 
     public function toHumanMinimal(): string
     {
-        if (! $this->seconds) {
+        if (0 === $this->hours && 0 === $this->minutes) {
             return '0 min';
         }
 
         $hours = $this->hours > 0 ? "{$this->hours}H" : '';
         $minutes = $this->minutes > 0 ? "{$this->minutes}min" : '';
 
-        return "$hours $minutes";
+        return trim("$hours $minutes");
     }
 }
