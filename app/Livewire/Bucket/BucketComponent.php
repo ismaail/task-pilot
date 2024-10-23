@@ -6,6 +6,7 @@ namespace App\Livewire\Bucket;
 
 use Domain\Bucket\Models\Bucket;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Livewire\Component;
 
 class BucketComponent extends Component
@@ -22,6 +23,10 @@ class BucketComponent extends Component
     public function render(): View
     {
         $this->dispatch('refresh.preline.dropdown');
+
+        $this->bucket->loadMissing([
+            'cards' => fn (HasMany $q) => $q->where('archived', false)  // @todo: can be changed via request query.
+        ]);
 
         return view('livewire.bucket.bucket-component')
             ->with('cards', $this->bucket->cards);
