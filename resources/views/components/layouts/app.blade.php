@@ -14,12 +14,14 @@
 	@vite('resources/assets/css/app.css')
 </head>
 <body>
+	{{-- Top Page Header --}}
 	<nav class="w-full flex flex-wrap items-center justify-between p-4">
+		{{-- Logo --}}
 		<a href="{{ route('home') }}" class="flex items-center space-x-2">
 			<img src="{{ asset('images/logo-m.jpg') }}" class="h-8" alt="Task Pilot Logo" />
 			<span class="self-center text-3xl font-semibold whitespace-nowrap text-primary">Task Pilot</span>
 		</a>
-		{{-- Dropdown Menu --}}
+		{{-- Profile Dropdown Menu --}}
 		<x-utils.dropdown-button>
 			<x-slot name="icon">
 				<img src="{{ asset('images/avatar.png') }}" alt="{{ auth()->user()->name }}" class="size-8 cursor-pointer">
