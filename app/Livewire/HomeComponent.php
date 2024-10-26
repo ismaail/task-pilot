@@ -14,6 +14,13 @@ class HomeComponent extends Component
 {
     private User $user;
 
+    /**
+     * @var array<string, string>
+     */
+    protected $listeners = [
+        'home-updated' => '$refresh',
+    ];
+
     public function boot(#[CurrentUser] User $user): void
     {
         $this->user = $user;

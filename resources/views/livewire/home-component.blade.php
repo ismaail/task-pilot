@@ -10,7 +10,10 @@
 				@endif
 			</a>
 		@endforeach
-			<button class="flex items-center gap-x-1 w-72 p-2 rounded text-white hover:text-primary font-semibold cursor-pointer">
+			<button
+					wire:click="$dispatch('openModal', { component: 'board.modals.create-board'})"
+					title="Create new Board"
+					class="flex items-center gap-x-1 w-72 p-2 rounded text-white hover:text-primary font-semibold cursor-pointer">
 				<x-icons.plus class="size-5" /> New Board
 			</button>
 	</div>
