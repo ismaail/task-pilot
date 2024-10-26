@@ -5,8 +5,16 @@
 		<x-utils.dropdown-button :dark="true">
 			<a href="{{ route('boards.timelogs', $board->id) }}"
 					class="dropdown-button">
+				<x-icons.clock class="size-4 fill-transparent"></x-icons.clock>
 				<span>Timelogs</span>
 			</a>
+			<button
+					wire:click="delete"
+					wire:confirm="Are you sure to delete this Board ?"
+					class="dropdown-button text-red-500">
+				<x-icons.trash class="size-4 fill-transparent"></x-icons.trash>
+				<span>Delete</span>
+			</button>
 		</x-utils.dropdown-button>
 	</div>
 	{{-- Buckets --}}
