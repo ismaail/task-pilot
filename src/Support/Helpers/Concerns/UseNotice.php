@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Support\Helpers\Concerns;
 
+use Illuminate\Support\Facades\Session;
+use Livewire\Attributes\Js;
+
 trait UseNotice
 {
     public function info(string $message): void
@@ -35,5 +38,27 @@ trait UseNotice
                 'text' => $message,
             ]
         );
+    }
+
+    protected function flashNotice(NoticeType $type, string $message): void
+    {
+        Session::flash('notice', [
+            'type' => $type->value,
+            'message' => $message,
+        ]);
+    }
+
+    #[Js]
+    public function popFlash(): string
+    {
+        if (! Session::has('notice')) {
+            return "''";
+        }
+
+        $noticeData = Session::get('notice');
+
+        return <<<JS
+          Livewire.dispatch('notice', {type: '{$noticeData['type']}', text: '{$noticeData['message']}'});
+        JS;
     }
 }
