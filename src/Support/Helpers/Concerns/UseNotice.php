@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Support\Helpers\Concerns;
 
+use Illuminate\Support\Facades\Session;
+
 trait UseNotice
 {
     public function info(string $message): void
@@ -35,5 +37,13 @@ trait UseNotice
                 'text' => $message,
             ]
         );
+    }
+
+    protected function flashNotice(NoticeType $type, string $message): void
+    {
+        Session::flash('notice', [
+            'type' => $type->value,
+            'message' => $message,
+        ]);
     }
 }

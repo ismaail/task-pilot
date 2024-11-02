@@ -1,4 +1,4 @@
-/* global HSDropdown, Livewire */
+/* global HSDropdown */
 
 import 'preline/dist/dropdown';
 import '@nextapps-be/livewire-sortablejs';
@@ -10,10 +10,6 @@ document.addEventListener('livewire:initialized', () => {
 		}
 
 		setTimeout(() => HSDropdown.autoInit(), 1000);
-	});
-
-	window.addEventListener('notice.add', (event) => {
-		Livewire.dispatch('notice', event.detail[0]);
 	});
 
 	const favicon = document.querySelector('link[rel="icon"]');

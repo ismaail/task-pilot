@@ -40,6 +40,16 @@
 	</div>
 </div>
 
+@script
+	<script>
+		window.addEventListener('notice.add', (event) => {
+			Livewire.dispatch('notice', event.detail[0]);
+		});
+
+		setTimeout(() => $wire.popFlash(), 1000);
+	</script>
+@endscript
+
 @push('javascript')
 	<script>
 		const autoClose = {{ $autoClose ? 'true' : 'false' }} ;

@@ -11,9 +11,13 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Collection;
 use Livewire\Component;
+use Support\Helpers\Concerns\NoticeType;
+use Support\Helpers\Concerns\UseNotice;
 
 class BoardComponent extends Component
 {
+    use UseNotice;
+
     public Board $board;
 
     public function mount(): void
@@ -51,6 +55,15 @@ class BoardComponent extends Component
 
             Card::setNewOrder($cardItems->pluck('value'));
         });
+    }
+
+    public function delete(): void
+    {
+        $this->board->delete();
+
+        $this->flashNotice(NoticeType::Success, 'Board was successfully deleted.');
+
+        redirect()->route('home');
     }
 
     public function render(): View

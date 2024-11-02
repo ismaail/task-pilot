@@ -1,6 +1,7 @@
-//const colors = require('tailwindcss/colors');
+//import colors from 'tailwindcss/colors';
+import preline from 'preline/plugin';
 
-module.exports = {
+export default {
 	content: [
 		'./resources/assets/**/*.vue',
 		'./resources/views/**/*.blade.php',
@@ -31,6 +32,6 @@ module.exports = {
 		'active',
 	],
   plugins: [
-		require('preline/plugin'),
+		preline,
 	],
 };
