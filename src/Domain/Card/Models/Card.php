@@ -46,7 +46,7 @@ class Card extends Model implements Sortable
     }
 
     /**
-     * @return BelongsTo<Bucket, Card>
+     * @return BelongsTo<Bucket, $this>
      */
     public function bucket(): BelongsTo
     {
@@ -54,7 +54,7 @@ class Card extends Model implements Sortable
     }
 
     /**
-     * @return HasMany<Timelog>
+     * @return HasMany<Timelog, $this>
      */
     public function timelogs(): HasMany
     {
@@ -77,7 +77,9 @@ class Card extends Model implements Sortable
     }
 
     /**
-     * @return Builder<Card>
+     * Ovverides Spatie Trait.
+     * .
+     * @return Builder<static>
      */
     public function buildSortQuery(): Builder
     {

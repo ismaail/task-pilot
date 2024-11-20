@@ -38,7 +38,7 @@ class Board extends Model
     }
 
     /**
-     * @return BelongsToMany<User>
+     * @return BelongsToMany<User, $this>
      */
     public function members(): BelongsToMany
     {
@@ -55,7 +55,7 @@ class Board extends Model
     }
 
     /**
-     * @return HasMany<Bucket>
+     * @return HasMany<Bucket, $this>
      */
     public function buckets(): HasMany
     {

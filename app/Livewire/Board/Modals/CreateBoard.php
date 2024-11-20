@@ -27,7 +27,7 @@ class CreateBoard extends ModalComponent
             if ($this->withDefaultBuckets) {
                 /** @var Bucket[] $buckets */
                 $buckets = collect(['Backlog', 'To Do', 'In Progress', 'Done'])
-                    ->map(fn ($name) => Bucket::make(['name' => $name]));
+                    ->map(fn ($name) => new Bucket(['name' => $name]));
 
                 $board->buckets()->saveMany($buckets);
             }

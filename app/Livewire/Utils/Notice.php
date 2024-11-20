@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire\Utils;
 
 use Illuminate\Container\Attributes\Config;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Js;
 use Livewire\Component;
@@ -29,7 +30,7 @@ class Notice extends Component
         #[Config('utils.notice.position')] string $position,
         #[Config('utils.notice.auto_close')] bool $autoClose,
         #[Config('utils.notice.time_close')] int $timeClose,
-    ) {
+    ): void {
         $this->autoClose = $autoClose;
         $this->timeClose = $timeClose;
 
@@ -50,7 +51,7 @@ class Notice extends Component
         JS;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.utils.notice');
     }

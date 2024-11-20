@@ -58,7 +58,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return HasOne<Card>
+     * @return HasOne<Card, $this>
      */
     public function currentCard(): HasOne
     {

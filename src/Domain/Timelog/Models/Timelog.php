@@ -43,7 +43,7 @@ class Timelog extends Model
     }
 
     /**
-     * @return BelongsTo<Card, Timelog>
+     * @return BelongsTo<Card, $this>
      */
     public function card(): BelongsTo
     {

@@ -28,7 +28,7 @@ class Bucket extends Model implements Sortable
     ];
 
     /**
-     * @return BelongsTo<Board, Bucket>
+     * @return BelongsTo<Board, $this>
      */
     public function board(): BelongsTo
     {
@@ -36,7 +36,7 @@ class Bucket extends Model implements Sortable
     }
 
     /**
-     * @return HasMany<Card>
+     * @return HasMany<Card, $this>
      */
     public function cards(): HasMany
     {
