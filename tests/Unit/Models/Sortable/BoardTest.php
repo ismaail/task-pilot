@@ -46,13 +46,11 @@ it('Creates new Cards with sort column in sequance starting from a max value', f
 });
 
 it('Assign a sort value is segregatd by Bucket', function () {
-    $buckets = Bucket::factory(2)
+    [$firstBucket, $secondBucket] = Bucket::factory(2)
         ->for(Board::factory(), relationship: 'board')
         ->create();
 
-    [$firstBucket, $secondBucket] = $buckets;
-
-    // Create 1st Card for 1st Bucket with sort = 8
+    // Create 1st Card for 1st Bucket with sort = 3
     Card::withoutEvents(function () use ($firstBucket) {
         Card::factory(1)
             ->for($firstBucket, relationship: 'bucket')
@@ -66,7 +64,7 @@ it('Assign a sort value is segregatd by Bucket', function () {
             ->create(['sort' => 9]);
     });
 
-    // Create 1 Card for 2nd Bucket
+    // Create 1 Card for 2nd Bucket with auto sort value.
     Card::factory(1)
         ->for($firstBucket, relationship: 'bucket')
         ->create();
