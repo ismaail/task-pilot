@@ -1,4 +1,4 @@
-.PHONY: up start stop down log artisan migrate migrate\:fresh migrate\:rollback scrap phone import composer composer\:update supervisor-update permissions\:fix fpm-reload ide-helper tests deploy yarn nginx-check nginx-reload debug\:enable debug\:disable debug\:coverage pm2\:start pm2\:restart pm2\:stop pm2\:delete postgres\:fix
+.PHONY: up start stop down log artisan migrate migrate\:fresh migrate\:rollback scrap phone import composer composer\:update supervisor-update permissions\:fix fpm-reload ide-helper tests phpstan deploy yarn nginx-check nginx-reload debug\:enable debug\:disable debug\:coverage pm2\:start pm2\:restart pm2\:stop pm2\:delete postgres\:fix
 
 include .env
 
@@ -132,6 +132,15 @@ tests:
 		$(CONTAINER_FPM) \
 		php ./vendor/bin/pest --do-not-cache-result --no-coverage \
 		2>/dev/null || true
+
+phpstan:
+	docker exec -it \
+		-u $(UID) \
+		$(CONTAINER_FPM) \
+		php ./vendor/bin/phpstan analyse --memory-limit 1024M $(args) \
+		2>/dev/null || true
+
+
 
 deploy:
 	envoy run deploy
