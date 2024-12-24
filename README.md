@@ -1,4 +1,4 @@
-# Task Pilot (WIP)
+# Task Pilot
 
 The primary goal of **Task Pilot** is to track time spent on a projet.
  
