@@ -33,7 +33,7 @@ This project is build with **Laravel Livewire** & **Alpinejs**.
 ## Milestones
 
 1. ### Version 1.0
-   - [ ] List & Create Boards
+   - [x] List & Create Boards
    - [X] Run/Stop a Task
    - [x] Create/Delete Tasks
    - [x] Move/Sort Tasks Tasks
