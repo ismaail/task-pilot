@@ -15,6 +15,13 @@
 				<x-icons.trash class="size-4 fill-transparent"></x-icons.trash>
 				<span>Delete</span>
 			</button>
+			<button
+					wire:click="archive"
+					wire:confirm="Are you sure to archive this Board ?"
+					class="dropdown-button">
+				<x-icons.archive class="size-4 fill-transparent"></x-icons.archive>
+				<span>Archive</span>
+			</button>
 		</x-utils.dropdown-button>
 	</div>
 	{{-- Buckets --}}
