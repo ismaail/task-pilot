@@ -28,8 +28,12 @@ class HomeComponent extends Component
 
     public function render(): View
     {
+        $boards = Board::query()
+            ->where('archived', false)
+            ->get();
+
         return view('livewire.home-component')
-            ->with('boards', Board::all())
+            ->with('boards', $boards)
             ->with('current_board_id', $this->user->currentCard?->bucket->board_id)
             ;
     }
