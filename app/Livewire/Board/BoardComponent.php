@@ -66,6 +66,15 @@ class BoardComponent extends Component
         redirect()->route('home');
     }
 
+    public function archive(): void
+    {
+        $this->board->update(['archived' => true]);
+
+        $this->flashNotice(NoticeType::Success, 'Board was successfully archived.');
+
+        redirect()->route('home');
+    }
+
     public function render(): View
     {
         return view('livewire.board.board-component')
