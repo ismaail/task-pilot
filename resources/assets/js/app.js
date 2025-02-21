@@ -1,7 +1,7 @@
 /* global HSDropdown */
 
 import 'preline/dist/dropdown';
-import '@nextapps-be/livewire-sortablejs';
+import '@wotz/livewire-sortablejs';
 
 document.addEventListener('livewire:initialized', () => {
 	window.addEventListener('refresh.preline.dropdown', () => {
