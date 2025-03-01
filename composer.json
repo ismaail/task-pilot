@@ -8,13 +8,13 @@
         "php": "^8.4",
         "gehrisandro/tailwind-merge-laravel": "^1.2",
         "laravel/fortify": "^1.24",
-        "laravel/framework": "^11.9",
+        "laravel/framework": "^12.0",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.5",
         "lorisleiva/laravel-actions": "^2.8",
         "sentry/sentry-laravel": "^4.9",
         "spatie/eloquent-sortable": "^4.4",
-        "spatie/laravel-collection-macros": "^7.14",
+        "spatie/laravel-collection-macros": "^8.0",
         "wire-elements/modal": "^2.0"
     },
     "require-dev": {
