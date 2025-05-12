@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.4",
+        "ext-zip": "*",
         "gehrisandro/tailwind-merge-laravel": "^1.2",
         "laravel/fortify": "^1.24",
         "laravel/framework": "^12.0",
@@ -14,6 +15,7 @@
         "lorisleiva/laravel-actions": "^2.8",
         "sentry/sentry-laravel": "^4.9",
         "spatie/eloquent-sortable": "^4.4",
+        "spatie/laravel-backup": "^9.3",
         "spatie/laravel-collection-macros": "^8.0",
         "wire-elements/modal": "^2.0"
     },
