@@ -1,8 +1,8 @@
 {
-    "name": "laravel/laravel",
+    "name": "ismaial/task-pilot",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "description": "Tack Time on Project's Task",
+    "keywords": ["Time Manager", "Task Manager", "Project Manager" ,"laravel", "framework"],
     "license": "MIT",
     "require": {
         "php": "^8.4",
