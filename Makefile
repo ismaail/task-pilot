@@ -1,4 +1,4 @@
-.PHONY: up start stop down log artisan migrate migrate\:fresh migrate\:rollback scrap phone import composer composer\:update supervisor-update permissions\:fix fpm-reload ide-helper tests phpstan deploy yarn nginx-check nginx-reload debug\:enable debug\:disable debug\:coverage pm2\:start pm2\:restart pm2\:stop pm2\:delete postgres\:fix
+.PHONY: up start stop down log artisan migrate migrate\:fresh migrate\:rollback scrap phone import composer composer\:update supervisor-update permissions\:fix fpm-reload ide-helper tests phpstan deploy yarn nginx-check nginx-reload pm2\:start pm2\:restart pm2\:stop pm2\:delete pint\:test pint\:repair
 
 include .env
 
@@ -13,11 +13,11 @@ args := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
 # Set dir of Makefile to a variable to use later
 MAKEPATH := $(abspath $(lastword $(MAKEFILE_LIST)))
 PWD := $(dir $(MAKEPATH))
-CONTAINER_FPM  := $(shell docker ps --format 'table {{.Names}}' | grep -m 1 $(APP_NAME)_fpm)
-CONTAINER_WEB  := $(shell docker ps --format 'table {{.Names}}' | grep -m 1 $(APP_NAME)_web)
-CONTAINER_NODE := $(shell docker ps --format 'table {{.Names}}' | grep -m 1 $(APP_NAME)_nodejs)
+CONTAINER_FPM  := $(shell docker ps --format 'table {{.Names}}' | grep -m 1 $(DOCKER_NAME)_fpm)
+CONTAINER_WEB  := $(shell docker ps --format 'table {{.Names}}' | grep -m 1 $(DOCKER_NAME)_web)
+CONTAINER_NODE := $(shell docker ps --format 'table {{.Names}}' | grep -m 1 $(DOCKER_NAME)_nodejs)
 UID := 1000
-COMPOSE_PROJECT_NAME := $(APP_NAME)
+COMPOSE_PROJECT_NAME := $(DOCKER_NAME)
 
 up:
 	docker-compose -p $(COMPOSE_PROJECT_NAME) up -d
@@ -81,7 +81,7 @@ seed:
 		-u $(UID) \
 		-e XDEBUG_MODE=off \
 		$(CONTAINER_FPM) \
-		php artisan db:seed \
+		php artisan db:seed $(args) \
 		2>/dev/null || true
 
 migrate\:fresh\:seed:
@@ -118,6 +118,7 @@ ide-helper:
 	docker exec -it -u $(UID) -e XDEBUG_MODE=off $(CONTAINER_FPM) php artisan ide-helper:eloquent 2>/dev/null || true
 
 cache\:clear:
+	docker exec -it -u $(UID) -e XDEBUG_MODE=off $(CONTAINER_FPM) php artisan clear       2>/dev/null || true && \
 	docker exec -it -u $(UID) -e XDEBUG_MODE=off $(CONTAINER_FPM) php artisan cache:clear 2>/dev/null || true && \
 	docker exec -it -u $(UID) -e XDEBUG_MODE=off $(CONTAINER_FPM) php artisan view:clear   2>/dev/null || true && \
 	docker exec -it -u $(UID) -e XDEBUG_MODE=off $(CONTAINER_FPM) php artisan route:clear  2>/dev/null || true && \
@@ -140,7 +141,19 @@ phpstan:
 		php ./vendor/bin/phpstan analyse --memory-limit 1024M $(args) \
 		2>/dev/null || true
 
+pint\:test:
+	docker exec -it \
+		-u $(UID) \
+		$(CONTAINER_FPM) \
+		php ./vendor/bin/pint --test --parallel \
+		2>/dev/null || true
 
+pint\:repair:
+	docker exec -it \
+		-u $(UID) \
+		$(CONTAINER_FPM) \
+		php ./vendor/bin/pint --repair --parallel \
+		2>/dev/null || true
 
 deploy:
 	envoy run deploy
@@ -152,8 +165,10 @@ permissions\:fix:
 	docker exec -u 0 -it $(CONTAINER_FPM) chown -R 1000:100 ./bootstrap 2>/dev/null || true && \
 	docker exec -u 0 -it $(CONTAINER_FPM) chown -R 1000:100 ./storage/logs 2>/dev/null || true && \
 	docker exec -u 0 -it $(CONTAINER_FPM) chown -R 1000:100 ./storage/framework 2>/dev/null || true && \
+	docker exec -u 0 -it $(CONTAINER_FPM) chown -R 1000:100 ./vendor 2>/dev/null || true && \
 	docker exec -u 0 -i $(CONTAINER_FPM) find ./vendor -type d -exec chmod 755 {} \; 2>/dev/null || true && \
-	docker exec -u 0 -i $(CONTAINER_FPM) find ./vendor -type f -exec chmod 644 {} \; 2>/dev/null || true
+	docker exec -u 0 -i $(CONTAINER_FPM) find ./vendor -type f -exec chmod 644 {} \; 2>/dev/null || true && \
+	docker exec -u 0 -it $(CONTAINER_FPM) chmod +x ./vendor/bin/* 2>/dev/null
 
 fpm\:reload:
 	docker exec -it $(CONTAINER_FPM) kill -USR2 1
@@ -189,18 +204,3 @@ pm2\:stop:
 
 pm2\:delete:
 	pm2 delete pm2.yml
-
-db_username?="$(DB_USERNAME)"
-db_password?="$(DB_PASSWORD)"
-db_name?="$(DB_DATABASE)"
-db_host?="$(DB_HOST)"
-table_name=""
-postgres\:fix:
-	docker exec -it -u $(UID) \
-	-e PGPASSWORD=$(db_password) \
-	$(CONTAINER_FPM) \
-	psql -U $(db_username) \
-	-d $(db_name) \
-	-h $(db_host) \
-	-c "SELECT SETVAL('$(table_name)_id_seq', COALESCE(MAX(id), 1)) FROM $(table_name);" \
-	2>/dev/null || true
