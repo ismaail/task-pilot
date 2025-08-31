@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Carbon\CarbonImmutable;
 use Domain\Card\DataObjects\CurrentCardDataObject;
 use Domain\Card\Models\Card;

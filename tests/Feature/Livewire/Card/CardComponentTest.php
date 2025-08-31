@@ -14,7 +14,8 @@ it('Deletes a Card', function () {
 
     $card = Card::factory()
         ->for(Bucket::factory()->for(Board::factory()->create())->create())
-        ->create(['name' => 'Task Example']);
+        ->create(['name' => 'Task Example'])
+    ;
 
     $this->assertDatabaseCount('cards', 1);
 
@@ -24,7 +25,7 @@ it('Deletes a Card', function () {
         ->assertSee('Task Example')
         ->call('delete')
         ->assertDispatched('bucket-1-updated')
-        ;
+    ;
 
     $this->assertDatabaseCount('cards', 0);
 });

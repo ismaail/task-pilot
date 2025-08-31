@@ -12,8 +12,7 @@ readonly class CurrentCardDataObject
     public function __construct(
         public ?int $id,
         public ?CarbonImmutable $startedAt,
-    ) {
-    }
+    ) {}
 
     public static function makeFromAuthUser(): self
     {

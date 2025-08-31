@@ -51,7 +51,7 @@ class Board extends Model
             ->as('membership')
             ->withPivot(['relation'])
             ->using(BoardMember::class)
-            ;
+        ;
     }
 
     /**

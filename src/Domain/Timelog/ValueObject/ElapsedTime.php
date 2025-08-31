@@ -10,8 +10,7 @@ readonly class ElapsedTime
         public int $hours,
         public int $minutes,
         public int $seconds,
-    ) {
-    }
+    ) {}
 
     public static function fromSeconds(?int $seconds): self
     {

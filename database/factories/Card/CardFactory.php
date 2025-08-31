@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Factories\Card;
 
 use Domain\Bucket\Models\Bucket;
@@ -21,7 +23,7 @@ class CardFactory extends Factory
     {
         return [
             'name' => Str::title(($this->faker->words(nb: random_int(4, 10), asText: true))),
-            'bucket_id' => Bucket::factory()
+            'bucket_id' => Bucket::factory(),
         ];
     }
 }
