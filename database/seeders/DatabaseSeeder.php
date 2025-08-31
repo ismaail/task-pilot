@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
 use Domain\Board\Models\Board;
@@ -30,6 +32,7 @@ class DatabaseSeeder extends Seeder
                     ['name' => 'Done', 'sort' => 4],
                 )
                 ->has(Card::factory(random_int(3, 10))))
-            ->create(['name' => 'Example']);
+            ->create(['name' => 'Example'])
+        ;
     }
 }

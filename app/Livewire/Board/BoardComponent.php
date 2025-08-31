@@ -23,7 +23,7 @@ class BoardComponent extends Component
     public function mount(): void
     {
         $this->board->load([
-            'buckets.cards' => fn (HasMany $q) => $q->where('archived', false)  // @todo: can be changed via request query.
+            'buckets.cards' => fn (HasMany $q) => $q->where('archived', false),  // @todo: can be changed via request query.
         ]);
     }
 
@@ -51,7 +51,8 @@ class BoardComponent extends Component
             // Adjust Cards if moved to new Bucket
             Card::query()
                 ->whereIn('id', $cardItems->pluck('value'))
-                ->update(['bucket_id' => $bucketItem->get('value')]);
+                ->update(['bucket_id' => $bucketItem->get('value')])
+            ;
 
             Card::setNewOrder($cardItems->pluck('value'));
         });
@@ -78,6 +79,7 @@ class BoardComponent extends Component
     public function render(): View
     {
         return view('livewire.board.board-component')
-            ->with('buckets', $this->board->buckets);
+            ->with('buckets', $this->board->buckets)
+        ;
     }
 }

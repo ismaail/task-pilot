@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Livewire\Card\Forms\CardForm;
 use App\Livewire\Card\Modals\CreateCard;
 use Domain\Board\Models\Board;
 use Domain\Bucket\Models\Bucket;
@@ -18,7 +17,8 @@ it('Fails to create new Card with invalid form data', function (
 
     $bucket = Bucket::factory()
         ->for(Board::factory()->create())
-        ->create();
+        ->create()
+    ;
 
     $this->assertDatabaseCount('cards', 0);
 
@@ -29,7 +29,7 @@ it('Fails to create new Card with invalid form data', function (
         ->call('create')
         ->assertHasErrors($expectedErrors)
         ->assertHasNoErrors($expectedNoErrors)
-        ;
+    ;
 
     $this->assertDatabaseCount('cards', 0);
 })->with([
@@ -53,7 +53,8 @@ it('create new Card with valid form data', function () {
 
     $bucket = Bucket::factory()
         ->for(Board::factory()->create())
-        ->create();
+        ->create()
+    ;
 
     $this->assertDatabaseCount('cards', 0);
 

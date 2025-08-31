@@ -20,6 +20,7 @@ class Bucket extends Model implements Sortable
 {
     /** @use HasFactory<\Database\Factories\Bucket\BucketFactory> */
     use HasFactory;
+
     use SortableTrait;
 
     protected $fillable = [

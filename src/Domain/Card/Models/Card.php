@@ -24,6 +24,7 @@ class Card extends Model implements Sortable
 {
     /** @use HasFactory<\Database\Factories\Card\CardFactory> */
     use HasFactory;
+
     use SortableTrait;
 
     protected $fillable = [
@@ -79,11 +80,13 @@ class Card extends Model implements Sortable
     /**
      * Ovverides Spatie Trait.
      * .
+     *
      * @return Builder<static>
      */
     public function buildSortQuery(): Builder
     {
         return static::query()
-            ->where('bucket_id', '=', $this->bucket_id);
+            ->where('bucket_id', '=', $this->bucket_id)
+        ;
     }
 }

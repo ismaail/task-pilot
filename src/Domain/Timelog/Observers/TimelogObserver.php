@@ -13,10 +13,12 @@ class TimelogObserver
     {
         $sumSeconds = Timelog::query()
             ->where('card_id', '=', $timelog->card_id)
-            ->sum('elapsed_seconds');
+            ->sum('elapsed_seconds')
+        ;
 
         Card::query()
             ->where('id', '=', $timelog->card_id)
-            ->update(['spent_seconds' => $sumSeconds]);
+            ->update(['spent_seconds' => $sumSeconds])
+        ;
     }
 }

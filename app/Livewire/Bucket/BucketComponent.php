@@ -25,10 +25,11 @@ class BucketComponent extends Component
         $this->dispatch('refresh.preline.dropdown');
 
         $this->bucket->loadMissing([
-            'cards' => fn (HasMany $q) => $q->where('archived', false)  // @todo: can be changed via request query.
+            'cards' => fn (HasMany $q) => $q->where('archived', false),  // @todo: can be changed via request query.
         ]);
 
         return view('livewire.bucket.bucket-component')
-            ->with('cards', $this->bucket->cards);
+            ->with('cards', $this->bucket->cards)
+        ;
     }
 }

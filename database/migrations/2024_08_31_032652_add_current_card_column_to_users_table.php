@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,7 +14,8 @@ return new class extends Migration
             $table->foreignId('current_card_id')
                 ->after('remember_token')
                 ->nullable()
-                ->constrained('cards')->cascadeOnDelete();
+                ->constrained('cards')->cascadeOnDelete()
+            ;
             $table->timestamp('current_card_at')->nullable()->after('current_card_id');
         });
     }

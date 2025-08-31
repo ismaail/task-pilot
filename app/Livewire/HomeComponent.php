@@ -30,11 +30,12 @@ class HomeComponent extends Component
     {
         $boards = Board::query()
             ->where('archived', false)
-            ->get();
+            ->get()
+        ;
 
         return view('livewire.home-component')
             ->with('boards', $boards)
             ->with('current_board_id', $this->user->currentCard?->bucket->board_id)
-            ;
+        ;
     }
 }

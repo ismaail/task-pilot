@@ -19,7 +19,7 @@ class Notice extends Component
     public int $timeClose;
 
     /**
-     * @var array<string, string> $positions
+     * @var array<string, string>
      */
     private array $positions = [
         'bottom-right' => 'flex-col-reverse',
