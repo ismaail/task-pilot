@@ -9,4 +9,5 @@ test('no dump & die')
 
 test('use strict types')
     ->expect(['App', 'Domain', 'Support'])
-    ->toUseStrictTypes();
+    ->toUseStrictTypes()
+;

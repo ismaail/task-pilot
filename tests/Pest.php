@@ -10,4 +10,5 @@ uses(
 ;
 
 uses(Tests\TestCase::class)
-    ->in('Unit', 'Architecture');
+    ->in('Unit', 'Architecture')
+;
