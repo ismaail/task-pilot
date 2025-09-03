@@ -21,6 +21,7 @@
 		"phpdoc_align": {
 			"align": "left"
 		},
+		"single_line_comment_spacing": false,
 		"single_trait_insert_per_statement": true,
 		"types_spaces": {
 			"space": "none"
