@@ -1,0 +1,39 @@
+<x-slot name="title">{{ $board->name }}</x-slot>
+<div class="flex flex-col w-full px-4 pb-4">
+	<div class="flex p-4 bg-white/5 rounded">
+		<h1 class="text-lg font-semibold text-white bg">Board: {{ $board->name }}</h1>
+		<x-utils.dropdown-button :dark="true">
+			<a href="{{ route('boards.timelogs', $board->id) }}"
+					class="dropdown-button">
+				<x-icons.clock class="size-4 fill-transparent"></x-icons.clock>
+				<span>Timelogs</span>
+			</a>
+			<button
+					wire:click="delete"
+					wire:confirm="Are you sure to delete this Board ?"
+					class="dropdown-button text-red-500">
+				<x-icons.trash class="size-4 fill-transparent"></x-icons.trash>
+				<span>Delete</span>
+			</button>
+			<button
+					wire:click="archive"
+					wire:confirm="Are you sure to archive this Board ?"
+					class="dropdown-button">
+				<x-icons.archive class="size-4 fill-transparent"></x-icons.archive>
+				<span>Archive</span>
+			</button>
+		</x-utils.dropdown-button>
+	</div>
+	{{-- Buckets --}}
+	<div
+			wire:sortable="sortBuckets"
+			wire:sortable-group="sortCards"
+			class="flex w-full flex-grow items-start overflow-y-hidden mt-4 space-x-3">
+		@foreach($buckets as $bucket)
+			<livewire:bucket.bucket-component :key="$bucket->id" :bucket="$bucket" />
+		@endforeach
+			<button class="flex basis-36 shrink-0 items-center gap-x-1 w-72 p-2 rounded text-white hover:text-primary font-semibold cursor-pointer">
+				<x-icons.plus class="size-5" /> New Bucket
+			</button>
+	</div>
+</div>

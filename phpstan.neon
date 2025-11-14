@@ -1,0 +1,36 @@
+includes:
+	- vendor/larastan/larastan/extension.neon
+
+parameters:
+	phpVersion: 80400 # PHP 8.4
+
+	paths:
+		- app
+		- src
+
+	excludePaths:
+		analyseAndScan:
+			- tests/*
+		analyse:
+			- stubs
+
+	scanFiles:
+		- stubs/ModelHelper.php
+		#- stubs/ExtraHelper.php
+
+	# Level 9 is the highest level
+	level: 6
+
+	reportUnmatchedIgnoredErrors: false
+
+	ignoreErrors:
+		- '#return type has no value type specified in iterable type array#'
+		- '#return type with generic class#'
+		- '#uses generic trait#'
+		- '#return type has no value type specified in iterable type array#'
+		- '#of method Illuminate\\Database\\Eloquent\\(.*)::(map|with|merge)(.*) expects#'
+
+	parallel:
+		jobSize: 20
+		maximumNumberOfProcesses: 6
+		minimumNumberOfJobsPerProcess: 2

@@ -1,0 +1,15 @@
+apps:
+  - name: vite
+    script: npm
+    exec_mode: fork
+    interpreter: node
+    instances: 1
+    args:
+      - run
+      - dev
+
+  - name: livereload
+    script: "./livereload.cjs"
+    exec_mode: fork
+    interpreter: node
+    instances: 1
