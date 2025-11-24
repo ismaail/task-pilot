@@ -1,6 +1,32 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+/*@import "preline/src/plugins/overlay/variants.css";*/
+@import "preline/src/plugins/dropdown/variants.css";
+@import "preline/src/plugins/collapse/variants.css";
+@import "toastify-js/src/toastify.css";
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+
+@custom-variant dark (&:where([data-mode=dark], [data-mode=dark] *));
+
+:root {
+	--color-primary: #91c27c;
+	--color-secondary: #022f4e;
+	--color-dark: #1e1d32; /*#141329;*/
+}
+
+:root[data-mode=dark] {
+}
+
+
+@theme {
+	--font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	--font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+	--font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+	--color-primary: var(--color-primary);
+	--color-secondary: var(--color-secondary);
+	--color-dark: var(--color-dark);
+}
 
 @layer base {
 	:root {
@@ -10,25 +36,42 @@
 	html, body {
 		@apply h-screen;
 	}
+
 	body {
-		@apply flex flex-col items-start tracking-wide font-normal bg-secondary text-black;
+		@apply flex flex-col items-start bg-secondary tracking-wide;
 	}
 
+}
+
+/*@layer utilities {
 	input[type="checkbox"] {
 		@apply block w-4 h-4 bg-white dark:bg-gray-700 border border-gray-400 outline-none dark:border-gray-600 rounded text-blue-600 cursor-pointer appearance-none;
 		background-image: var(--image-checkbox);
 
 		&:checked { @apply bg-blue-600; }
 	}
-}
+}*/
 
 .scrollbar {
 	scrollbar-color: #6b6b6b8f #49464638;
 	scrollbar-width: thin;
 }
 
-.dropdown-button {
+/*.dropdown-button {
 	@apply flex w-full items-center justify-start gap-x-1 py-2 px-3 rounded-lg text-sm hover:bg-gray-100 focus:outline-none focus:bg-gray-100;
+}*/
+
+/* Toastify	*/
+.toastify {
+	padding: 0;
+	box-shadow: none;
+	background: transparent;
+	border: none;
+	cursor: inherit;
+
+	& > button {
+		display: none;
+	}
 }
 
 .sortable-ghost {
