@@ -12,6 +12,31 @@
 	@endif
 	@livewireStyles
 	@vite('resources/assets/css/app.css')
+	<style>[x-cloak] {display: none;}</style>
+	{{-- Dark Mode--}}
+	<script>
+		const changeDarkMode = (isDark) => {
+			if (isDark) {
+				document.documentElement.setAttribute('data-mode', 'dark');
+				localStorage.setItem('dark-mode', 'true');
+
+				return;
+			}
+
+			document.documentElement.removeAttribute('data-mode');
+			localStorage.setItem('dark-mode', 'false');
+		};
+
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+			changeDarkMode(e.matches);
+		});
+
+		changeDarkMode(
+			null !== localStorage.getItem('dark-mode')
+				? localStorage.getItem('dark-mode') === 'true'
+				:window.matchMedia('(prefers-color-scheme: dark)').matches
+		);
+	</script>
 </head>
 <body>
 	{{-- Top Page Header --}}
