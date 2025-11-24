@@ -10,7 +10,7 @@
 	@else
 		<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 	@endif
-	@livewireStyles
+	{{-- @livewireStyles--}}
 	@vite('resources/assets/css/app.css')
 	<style>[x-cloak] {display: none;}</style>
 	{{-- Dark Mode--}}
