@@ -10,13 +10,19 @@
 
 :root {
 	--color-primary: #91c27c;
-	--color-secondary: #022f4e;
+	--color-secondary: #fff;
 	--color-dark: #1e1d32; /*#141329;*/
+	--color-gray-700: #00000055;
+	--color-gray-300: #f7f7f7;
+	--color-text: theme('colors.neutral.900');
 }
 
 :root[data-mode=dark] {
+	--color-secondary: #022f4e;
+	--color-gray-700: #ffffff55;
+	--color-gray-300: #0e3957;
+	--color-text: theme('colors.white');
 }
-
 
 @theme {
 	--font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -26,6 +32,8 @@
 	--color-primary: var(--color-primary);
 	--color-secondary: var(--color-secondary);
 	--color-dark: var(--color-dark);
+	--color-gray-300: var(--color-gray-300);
+	--color-text: var(--color-text);
 }
 
 @layer base {
