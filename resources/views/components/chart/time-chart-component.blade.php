@@ -1,4 +1,4 @@
-<div {{ $attributes->twMerge('relative p-4 w-full sm:w-[608px] h-auto sm:h-80 bg-white rounded') }}>
+<div {{ $attributes->twMerge('relative p-4 w-full sm:w-[608px] h-auto sm:h-80 bg-gray-300 rounded') }}>
 	<canvas id="time-chart" class=""></canvas>
 </div>
 

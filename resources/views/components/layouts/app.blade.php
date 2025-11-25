@@ -50,12 +50,12 @@
 			<span class="self-center text-3xl font-semibold whitespace-nowrap text-primary">{{ config('app.title') }}</span>
 		</a>
 		{{-- Profile Dropdown Menu --}}
-		<x-utils.dropdown-button>
-			<x-slot name="icon">
+		<x-utils.dropdown>
+			<x-slot name="trigger">
 				<img src="{{ asset('images/avatar.png') }}" alt="{{ auth()->user()->name }}" class="size-8 cursor-pointer">
 			</x-slot>
-				<a href="{{ route('profile.timelogs') }}" class="dropdown-button"><span>@lang('Timelogs')</span></a>
-		</x-utils.dropdown-button>
+			<x-utils.dropdown-item><a href="{{ route('profile.timelogs') }}" class="py-2px-3dropdown-item-icon"><span>@lang('Timelogs')</span></a></x-utils.dropdown-item>
+		</x-utils.dropdown>
 	</nav>
 	<div class="flex flex-grow w-full overflow-y-hidden">
 		{{ $slot }}
