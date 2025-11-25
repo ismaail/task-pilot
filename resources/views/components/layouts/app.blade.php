@@ -43,8 +43,11 @@
 	<nav class="w-full flex flex-wrap items-center justify-between p-4">
 		{{-- Logo --}}
 		<a href="{{ route('home') }}" class="flex items-center space-x-2">
-			<img src="{{ asset('images/logo-m.jpg') }}" class="h-8" alt="Task Pilot Logo" />
-			<span class="self-center text-3xl font-semibold whitespace-nowrap text-primary">Task Pilot</span>
+			<picture>
+				<source srcset="{{ asset('images/logo-dark.png') }}" class="h-8" w="48" height="32" media="(prefers-color-scheme:dark)">
+				<img src="{{ asset('images/logo.png') }}" alt="{{ config('app.title') }}" class="h-8" w="48" height="32">
+			</picture>
+			<span class="self-center text-3xl font-semibold whitespace-nowrap text-primary">{{ config('app.title') }}</span>
 		</a>
 		{{-- Profile Dropdown Menu --}}
 		<x-utils.dropdown-button>
