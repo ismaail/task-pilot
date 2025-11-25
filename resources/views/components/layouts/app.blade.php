@@ -54,7 +54,7 @@
 			<x-slot name="icon">
 				<img src="{{ asset('images/avatar.png') }}" alt="{{ auth()->user()->name }}" class="size-8 cursor-pointer">
 			</x-slot>
-				<a href="{{ route('profile.timelogs') }}" class="dropdown-button"><span>Timelogs</span></a>
+				<a href="{{ route('profile.timelogs') }}" class="dropdown-button"><span>@lang('Timelogs')</span></a>
 		</x-utils.dropdown-button>
 	</nav>
 	<div class="flex flex-grow w-full overflow-y-hidden">
