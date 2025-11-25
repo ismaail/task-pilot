@@ -12,14 +12,14 @@
 	--color-primary: #91c27c;
 	--color-secondary: #fff;
 	--color-dark: #1e1d32; /*#141329;*/
-	--color-gray-700: #00000055;
+	--color-gray-700: #ddd; /*#00000040;*/
 	--color-gray-300: #f7f7f7;
 	--color-text: theme('colors.neutral.900');
 }
 
 :root[data-mode=dark] {
 	--color-secondary: #022f4e;
-	--color-gray-700: #ffffff55;
+	--color-gray-700: theme('colors.gray.700'); /*#ffffff55;*/
 	--color-gray-300: #0e3957;
 	--color-text: theme('colors.white');
 }
@@ -49,6 +49,14 @@
 		@apply flex flex-col items-start bg-secondary tracking-wide;
 	}
 
+
+	.dropdown-item {
+		& > button,
+		& > a {
+			@apply flex w-full items-center justify-start gap-x-1 py-2 px-3 rounded-lg text-sm hover:bg-gray-300 focus:outline-none focus:bg-gray-100 cursor-pointer;
+		}
+	}
+
 }
 
 /*@layer utilities {
@@ -64,10 +72,6 @@
 	scrollbar-color: #6b6b6b8f #49464638;
 	scrollbar-width: thin;
 }
-
-/*.dropdown-button {
-	@apply flex w-full items-center justify-start gap-x-1 py-2 px-3 rounded-lg text-sm hover:bg-gray-100 focus:outline-none focus:bg-gray-100;
-}*/
 
 /* Toastify	*/
 .toastify {
