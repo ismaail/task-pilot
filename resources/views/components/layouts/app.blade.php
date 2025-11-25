@@ -16,6 +16,8 @@
 	{{-- Dark Mode--}}
 	<script>
 		const changeDarkMode = (isDark) => {
+			globalThis.DarkMode = isDark;
+
 			if (isDark) {
 				document.documentElement.setAttribute('data-mode', 'dark');
 				localStorage.setItem('dark-mode', 'true');

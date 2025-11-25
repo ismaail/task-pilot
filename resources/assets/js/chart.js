@@ -27,8 +27,14 @@ new Chart($elm, {
 	options: {
 		indexAxis: 'x',
 		scales: {
+			x: {
+				ticks: {
+					color: globalThis?.DarkMode ? '#fff': '#555',
+				}
+			},
 			y: {
 				ticks: {
+					color: globalThis?.DarkMode ? '#fff': '#555',
 					min: 0, max: 240, stepSize: 15,// suggestedMin: 0.5, suggestedMax: 5.5,
 					callback: (totalMinutes) => {
 						const hours = Math.floor(totalMinutes / 60);
@@ -40,6 +46,11 @@ new Chart($elm, {
 			},
 		},
 		plugins: {
+			legend: {
+				labels: {
+					color: globalThis?.DarkMode ? '#fff': '#555',
+				},
+			},
 			tooltip: {
 				callbacks: {
 					/** @see https://www.chartjs.org/docs/latest/configuration/tooltip.html */
