@@ -1,30 +1,30 @@
 <div
 		wire:sortable-group.item="{{ $card->id }}"
-		class="group min-h14 px-2 py-2 space-y-0 rounded bg-white shadowxl border-2 border-gray-200 [body:not(.sorting)_&]:hover:border-secondary/20 text-sm">
+		class="group min-h14 px-2 py-2 space-y-0 rounded bg-gray700 shadowxl border-1 border-gray-700 [body:not(.sorting)_&]:hover:border-secondary/20 text-sm">
 	<div class="w-full flex space-x-2 justify-between items-start">
 		{{--Card Name--}}
 		<div class="flex items-start">
-			<x-icons.dragable wire:sortable-group.handle class="shrink-0 fill-black text-black hover:cursor-move size-5" aria-hidden="true"></x-icons.dragable>
-			<span class="line-clamp-3 select-none">{{ $card->name }}</span>
+			<x-icons.dragable wire:sortable-group.handle class="shrink-0 fill-text text-text hover:cursor-move size-5" aria-hidden="true"></x-icons.dragable>
+			<span class="line-clamp-3 select-none text-text">{{ $card->name }}</span>
 		</div>
 		{{--Run Task Button--}}
 		@if ($card->isCurrent())
 			<button
 					wire:click="stop"
-					class="mt-0.5 fill-blue-500 hover:fill-red-500 text-blue-600 hover:text-red-600" title="Stop">
+					class="mt-0.5 fill-blue-500 hover:fill-red-500 text-blue-600 hover:text-red-600 cursor-pointer" title="Stop">
 				<x-icons.stop class="size-5"></x-icons.stop>
 			</button>
 		@else
 			<button
 					wire:click="start"
-					class="mt-0.5 invisible group-hover:visible fill-white hover:fill-green-500 text-green-600" title="Start">
+					class="mt-0.5 invisible group-hover:visible fill-white hover:fill-green-500 text-green-600 cursor-pointer" title="Start">
 				<x-icons.play class="size-5"></x-icons.play>
 			</button>
 		@endif
 	</div>
 	<footer class="flex">
 		@if($card->spent_seconds)
-			<div class="flex mt-1 items-center space-x-0.5 text-gray-500 fill-white">
+			<div class="flex mt-1 items-center space-x-0.5 text-text/70 fill-white">
 				<x-icons.clock class="size-4"></x-icons.clock>
 				<span class="text-xs">{{ $card->elapsed_time->toHuman() }}</span>
 			</div>

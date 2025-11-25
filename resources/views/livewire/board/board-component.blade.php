@@ -1,7 +1,7 @@
 <x-slot name="title">{{ $board->name }}</x-slot>
 <div class="flex flex-col w-full px-4 pb-4">
-	<div class="flex p-4 bg-white/5 rounded">
-		<h1 class="text-lg font-semibold text-white bg">Board: {{ $board->name }}</h1>
+	<div class="flex p-4 bg-gray-300 rounded">
+		<h1 class="text-lg font-semibold text-text">@lang('Board'): {{ $board->name }}</h1>
 		<x-utils.dropdown-button :dark="true">
 			<a href="{{ route('boards.timelogs', $board->id) }}"
 					class="dropdown-button">
@@ -32,7 +32,7 @@
 		@foreach($buckets as $bucket)
 			<livewire:bucket.bucket-component :key="$bucket->id" :bucket="$bucket" />
 		@endforeach
-			<button class="flex basis-36 shrink-0 items-center gap-x-1 w-72 p-2 rounded text-white hover:text-primary font-semibold cursor-pointer">
+			<button class="flex basis-36 shrink-0 items-center gap-x-1 w-72 p-2 rounded text-text hover:text-primary font-semibold cursor-pointer">
 				<x-icons.plus class="size-5" /> New Bucket
 			</button>
 	</div>
