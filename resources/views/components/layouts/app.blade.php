@@ -10,24 +10,54 @@
 	@else
 		<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 	@endif
-	@livewireStyles
+	{{-- @livewireStyles--}}
 	@vite('resources/assets/css/app.css')
+	<style>[x-cloak] {display: none;}</style>
+	{{-- Dark Mode--}}
+	<script>
+		const changeDarkMode = (isDark) => {
+			globalThis.DarkMode = isDark;
+
+			if (isDark) {
+				document.documentElement.setAttribute('data-mode', 'dark');
+				localStorage.setItem('dark-mode', 'true');
+
+				return;
+			}
+
+			document.documentElement.removeAttribute('data-mode');
+			localStorage.setItem('dark-mode', 'false');
+		};
+
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+			changeDarkMode(e.matches);
+		});
+
+		changeDarkMode(
+			null !== localStorage.getItem('dark-mode')
+				? localStorage.getItem('dark-mode') === 'true'
+				:window.matchMedia('(prefers-color-scheme: dark)').matches
+		);
+	</script>
 </head>
 <body>
 	{{-- Top Page Header --}}
 	<nav class="w-full flex flex-wrap items-center justify-between p-4">
 		{{-- Logo --}}
 		<a href="{{ route('home') }}" class="flex items-center space-x-2">
-			<img src="{{ asset('images/logo-m.jpg') }}" class="h-8" alt="Task Pilot Logo" />
-			<span class="self-center text-3xl font-semibold whitespace-nowrap text-primary">Task Pilot</span>
+			<picture>
+				<source srcset="{{ asset('images/logo-dark.png') }}" class="h-8" w="48" height="32" media="(prefers-color-scheme:dark)">
+				<img src="{{ asset('images/logo.png') }}" alt="{{ config('app.title') }}" class="h-8" w="48" height="32">
+			</picture>
+			<span class="self-center text-3xl font-semibold whitespace-nowrap text-primary">{{ config('app.title') }}</span>
 		</a>
 		{{-- Profile Dropdown Menu --}}
-		<x-utils.dropdown-button>
-			<x-slot name="icon">
+		<x-utils.dropdown>
+			<x-slot name="trigger">
 				<img src="{{ asset('images/avatar.png') }}" alt="{{ auth()->user()->name }}" class="size-8 cursor-pointer">
 			</x-slot>
-				<a href="{{ route('profile.timelogs') }}" class="dropdown-button"><span>Timelogs</span></a>
-		</x-utils.dropdown-button>
+			<x-utils.dropdown-item><a href="{{ route('profile.timelogs') }}" class="py-2px-3dropdown-item-icon"><span>@lang('Timelogs')</span></a></x-utils.dropdown-item>
+		</x-utils.dropdown>
 	</nav>
 	<div class="flex flex-grow w-full overflow-y-hidden">
 		{{ $slot }}

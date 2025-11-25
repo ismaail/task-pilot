@@ -1,22 +1,24 @@
 {
-    "name": "task-pilot",
-    "private": true,
-    "type": "module",
-    "scripts": {
-        "dev": "vite",
-        "build": "vite build"
-    },
-    "devDependencies": {
-        "@tailwindcss/forms": "^0.5.6",
-        "@tailwindcss/typography": "^0.5.9",
-        "@types/alpinejs": "^3.13.11",
-        "@wotz/livewire-sortablejs": "^1.0.0",
-        "autoprefixer": "^10.4.15",
-        "chart.js": "^4.4.4",
-        "laravel-vite-plugin": "^1.0.0",
-        "postcss": "^8.4.29",
-        "preline": "^2.4.1",
-        "tailwindcss": "^3.3.3",
-        "vite": "^6.0.0"
-    }
+	"name": "task-pilot",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build"
+	},
+	"dependencies": {
+		"@tailwindcss/forms": "^0.5.10",
+		"@tailwindcss/typography": "^0.5.16",
+		"@tailwindcss/vite": "^4.0.0",
+		"@wotz/livewire-sortablejs": "^1.0.0",
+		"chart.js": "^4.4.4",
+		"laravel-vite-plugin": "^2.0.0",
+		"preline": "^3.2.3",
+		"tailwindcss": "^4.1.0",
+		"toastify-js": "^1.12.0",
+		"vite": "^7.0.4"
+	},
+	"devDependencies": {
+		"@types/alpinejs": "^3.13.11"
+	}
 }
