@@ -17,7 +17,7 @@
         "spatie/eloquent-sortable": "^4.4",
         "spatie/laravel-backup": "^9.3",
         "spatie/laravel-collection-macros": "^8.0",
-        "wire-elements/modal": "^2.0"
+        "wire-elements/modal": "^3.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.13",
