@@ -15,6 +15,7 @@
 	--color-gray-700: #ddd; /*#00000040;*/
 	--color-gray-300: #f7f7f7;
 	--color-text: theme('colors.neutral.900');
+	--color-blue: theme('colors.blue.600');
 }
 
 :root[data-mode=dark] {
@@ -22,6 +23,7 @@
 	--color-gray-700: theme('colors.gray.700'); /*#ffffff55;*/
 	--color-gray-300: #0e3957;
 	--color-text: theme('colors.white');
+	--color-blue: theme('colors.blue.600');
 }
 
 @theme {
@@ -34,6 +36,7 @@
 	--color-dark: var(--color-dark);
 	--color-gray-300: var(--color-gray-300);
 	--color-text: var(--color-text);
+	--color-blue: var(--color-blue);
 }
 
 @layer base {
@@ -59,14 +62,44 @@
 
 }
 
-/*@layer utilities {
+@layer utilities {
+	input.form-input,
+	textarea.form-input {
+		@apply py-3 px-4 border border-gray-700 rounded-lg bg-gray-300 text-text focus:ring-2 focus:ring-gray-700 focus:border-transparent;
+	}
+
+	input.form-input-sm {
+		@apply py-2 px-3 border border-gray-700 rounded-lg bg-gray-300 text-text text-sm focus:ring-2 focus:ring-gray-700 focus:border-transparent;
+	}
+
 	input[type="checkbox"] {
 		@apply block w-4 h-4 bg-white dark:bg-gray-700 border border-gray-400 outline-none dark:border-gray-600 rounded text-blue-600 cursor-pointer appearance-none;
 		background-image: var(--image-checkbox);
 
 		&:checked { @apply bg-blue-600; }
 	}
-}*/
+
+	select.form-select {
+		@apply py-3 ps-4 pe-10 border border-gray-700 rounded-lg focus:ring-2 bg-secondary focus:ring-gray-700 focus:border-transparent transition;
+	}
+
+	label.form-label {
+		@apply block mb-1 text-base text-text font-medium;
+	}
+
+	a.btn,
+	button.btn {
+		@apply py-3 px-4 rounded-lg bg-blue text-white font-bold hover:contrast-150 transition shadow-lg hover:shadow-xl cursor-pointer;
+	}
+
+	button.btn-icon {
+		@apply py-3 px-4 rounded-lg text-sm font-medium hover:brightness-90 transition w-full sm:w-auto cursor-pointer;
+	}
+
+	button.btn-icon-text {
+		@apply flex items-center gap-x-2 rounded-lg font-medium hover:contrast-150 transition cursor-pointer;
+	}
+}
 
 .scrollbar {
 	scrollbar-color: #6b6b6b8f #49464638;
