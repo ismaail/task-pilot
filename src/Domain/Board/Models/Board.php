@@ -38,7 +38,7 @@ class Board extends Model
     }
 
     /**
-     * @return BelongsToMany<User, $this>
+     * @return BelongsToMany<User, $this, \Domain\Board\Models\BoardMember, 'membership'>
      */
     public function members(): BelongsToMany
     {
