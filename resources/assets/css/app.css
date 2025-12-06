@@ -1,6 +1,43 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+/*@import "preline/src/plugins/overlay/variants.css";*/
+@import "preline/src/plugins/dropdown/variants.css";
+@import "preline/src/plugins/collapse/variants.css";
+@import "toastify-js/src/toastify.css";
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+
+@custom-variant dark (&:where([data-mode=dark], [data-mode=dark] *));
+
+:root {
+	--color-primary: #91c27c;
+	--color-secondary: #fff;
+	--color-dark: #1e1d32; /*#141329;*/
+	--color-gray-700: #ddd; /*#00000040;*/
+	--color-gray-300: #f7f7f7;
+	--color-text: theme('colors.neutral.900');
+	--color-blue: theme('colors.blue.600');
+}
+
+:root[data-mode=dark] {
+	--color-secondary: #022f4e;
+	--color-gray-700: theme('colors.gray.700'); /*#ffffff55;*/
+	--color-gray-300: #0e3957;
+	--color-text: theme('colors.white');
+	--color-blue: theme('colors.blue.600');
+}
+
+@theme {
+	--font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	--font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+	--font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+	--color-primary: var(--color-primary);
+	--color-secondary: var(--color-secondary);
+	--color-dark: var(--color-dark);
+	--color-gray-300: var(--color-gray-300);
+	--color-text: var(--color-text);
+	--color-blue: var(--color-blue);
+}
 
 @layer base {
 	:root {
@@ -10,8 +47,29 @@
 	html, body {
 		@apply h-screen;
 	}
+
 	body {
-		@apply flex flex-col items-start tracking-wide font-normal bg-secondary text-black;
+		@apply flex flex-col items-start bg-secondary tracking-wide;
+	}
+
+
+	.dropdown-item {
+		& > button,
+		& > a {
+			@apply flex w-full items-center justify-start gap-x-1 py-2 px-3 rounded-lg text-sm hover:bg-gray-300 focus:outline-none focus:bg-gray-100 cursor-pointer;
+		}
+	}
+
+}
+
+@layer utilities {
+	input.form-input,
+	textarea.form-input {
+		@apply py-3 px-4 border border-gray-700 rounded-lg bg-gray-300 text-text focus:ring-2 focus:ring-gray-700 focus:border-transparent;
+	}
+
+	input.form-input-sm {
+		@apply py-2 px-3 border border-gray-700 rounded-lg bg-gray-300 text-text text-sm focus:ring-2 focus:ring-gray-700 focus:border-transparent;
 	}
 
 	input[type="checkbox"] {
@@ -20,6 +78,27 @@
 
 		&:checked { @apply bg-blue-600; }
 	}
+
+	select.form-select {
+		@apply py-3 ps-4 pe-10 border border-gray-700 rounded-lg focus:ring-2 bg-secondary focus:ring-gray-700 focus:border-transparent transition;
+	}
+
+	label.form-label {
+		@apply block mb-1 text-base text-text font-medium;
+	}
+
+	a.btn,
+	button.btn {
+		@apply py-3 px-4 rounded-lg bg-blue text-white font-bold hover:contrast-150 transition shadow-lg hover:shadow-xl cursor-pointer;
+	}
+
+	button.btn-icon {
+		@apply py-3 px-4 rounded-lg text-sm font-medium hover:brightness-90 transition w-full sm:w-auto cursor-pointer;
+	}
+
+	button.btn-icon-text {
+		@apply flex items-center gap-x-2 rounded-lg font-medium hover:contrast-150 transition cursor-pointer;
+	}
 }
 
 .scrollbar {
@@ -27,8 +106,17 @@
 	scrollbar-width: thin;
 }
 
-.dropdown-button {
-	@apply flex w-full items-center justify-start gap-x-1 py-2 px-3 rounded-lg text-sm hover:bg-gray-100 focus:outline-none focus:bg-gray-100;
+/* Toastify	*/
+.toastify {
+	padding: 0;
+	box-shadow: none;
+	background: transparent;
+	border: none;
+	cursor: inherit;
+
+	& > button {
+		display: none;
+	}
 }
 
 .sortable-ghost {

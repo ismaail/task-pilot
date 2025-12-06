@@ -2,7 +2,7 @@ includes:
 	- vendor/larastan/larastan/extension.neon
 
 parameters:
-	phpVersion: 80400 # PHP 8.4
+	phpVersion: 80500 # PHP 8.5
 
 	paths:
 		- app
@@ -25,10 +25,10 @@ parameters:
 
 	ignoreErrors:
 		- '#return type has no value type specified in iterable type array#'
-		- '#return type with generic class#'
+		- '#return type (contains|with) generic class#'
 		- '#uses generic trait#'
 		- '#return type has no value type specified in iterable type array#'
-		- '#of method Illuminate\\Database\\Eloquent\\(.*)::(map|with|merge)(.*) expects#'
+		- '#of method Illuminate\\(.*)::(each|map|merge|with)(.*) expects#'
 
 	parallel:
 		jobSize: 20

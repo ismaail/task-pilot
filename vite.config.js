@@ -1,7 +1,7 @@
 import { fileURLToPath, URL } from 'node:url';
-
 import { defineConfig } from 'vite';
-import laravel, { refreshPaths } from 'laravel-vite-plugin';
+import laravel from 'laravel-vite-plugin';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
 	plugins: [
@@ -11,21 +11,15 @@ export default defineConfig({
 				'resources/assets/js/app.js',
 				'resources/assets/js/chart.js',
 			],
-			refresh: [
-				...refreshPaths,
-				'app/Filament/**',
-				'app/Forms/Components/**',
-				'app/Livewire/**',
-				'app/Infolists/Components/**',
-				'app/Providers/Filament/**',
-				'app/Tables/Columns/**',
-			],
+			refresh: true,
 		}),
+		tailwindcss(),
 	],
 	resolve: {
 		alias: {
 			'~': fileURLToPath(new URL('./resources/assets/js', import.meta.url)),
 			'@livewire': fileURLToPath(new URL('./vendor/livewire/livewire/dist', import.meta.url)),
+			'/images': '/public/images',
 		}
 	}
 });

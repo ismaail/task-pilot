@@ -5,7 +5,7 @@
     "keywords": ["Time Manager", "Task Manager", "Project Manager" ,"laravel", "framework"],
     "license": "MIT",
     "require": {
-        "php": "^8.4",
+        "php": "^8.5",
         "ext-zip": "*",
         "gehrisandro/tailwind-merge-laravel": "^1.2",
         "laravel/fortify": "^1.24",
@@ -17,12 +17,13 @@
         "spatie/eloquent-sortable": "^4.4",
         "spatie/laravel-backup": "^9.3",
         "spatie/laravel-collection-macros": "^8.0",
-        "wire-elements/modal": "^2.0"
+        "wire-elements/modal": "^3.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.13",
         "barryvdh/laravel-ide-helper": "^3.6",
         "fakerphp/faker": "^1.23",
+        "laradumps/laradumps": "^4.5",
         "larastan/larastan": "^3.7",
         "laravel/pint": "^1.24",
         "mockery/mockery": "^1.6",
