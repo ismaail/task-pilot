@@ -44,7 +44,7 @@
 	{{-- Top Page Header --}}
 	<nav class="w-full flex flex-wrap items-center justify-between p-4">
 		{{-- Logo --}}
-		<a href="{{ route('home') }}" class="flex items-center space-x-2">
+		<a wire:navigate href="{{ route('home') }}" class="flex items-center space-x-2">
 			<picture>
 				<source srcset="{{ asset('images/logo-dark.png') }}" class="h-8" w="48" height="32" media="(prefers-color-scheme:dark)">
 				<img src="{{ asset('images/logo.png') }}" alt="{{ config('app.title') }}" class="h-8" w="48" height="32">
