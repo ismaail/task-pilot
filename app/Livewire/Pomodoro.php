@@ -17,6 +17,8 @@ class Pomodoro extends Component
 
     public bool $paused = true;
 
+    public int $elapsedSeconds = 0;
+
     public function mount(): void
     {
         $state = Session::get('pomodoro');
@@ -25,6 +27,10 @@ class Pomodoro extends Component
             $this->startedAt = Carbon::parse($state['started_at']);
             $this->remainingSeconds = $state['remaining'];
             $this->paused = $state['paused'];
+
+            $this->elapsedSeconds = $this->paused
+                ? 0
+                : abs((int)now()->diffInSeconds($state['started_at']));
         }
 
     }
@@ -37,6 +43,7 @@ class Pomodoro extends Component
         // Detect finish
         if ($this->remainingSeconds <= 0) {
             $this->remainingSeconds = 1500; // reset to 25 min
+            $this->elapsedSeconds = 0;
         }
 
         Session::put('pomodoro.started_at', $this->startedAt);
@@ -44,6 +51,8 @@ class Pomodoro extends Component
         Session::put('pomodoro.paused', false);
 
         $this->paused = false;
+
+        $this->dispatch('pomodoro.started');
     }
 
     #[On('task.stoped')]
@@ -65,6 +74,7 @@ class Pomodoro extends Component
         Session::put('pomodoro.paused', true);
 
         $this->remainingSeconds = $remainingSeconds;
+        $this->elapsedSeconds = 0;
         $this->paused = true;
 
         // If reached zero while pausing
@@ -72,6 +82,9 @@ class Pomodoro extends Component
             Session::forget('pomodoro');
             //auth()->user()->notify(new PomodoroFinished());
         }
+
+        $this->dispatch('pomodoro.stoped');
+        $this->dispatch('notification.show', 'Task Pilot', 'Task Stoped.');
     }
 
     public function render()
