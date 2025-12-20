@@ -84,7 +84,6 @@ class Pomodoro extends Component
         }
 
         $this->dispatch('pomodoro.stoped');
-        $this->dispatch('notification.show', 'Task Pilot', 'Task Stoped.');
     }
 
     public function render()
