@@ -13,8 +13,9 @@ document.addEventListener('livewire:initialized', () => {
 		setTimeout(() => HSDropdown.autoInit(), 1000);
 	});
 
-	const favicon = document.querySelector('link[rel="icon"]');
 	window.addEventListener('swap-favicon', (event) => {
+		const favicon = document.querySelector('link[rel="icon"]');
+
 		favicon.setAttribute('href', event.detail[0].is_busy ? '/favicon_busy.ico' : '/favicon.ico');
 	});
 });
