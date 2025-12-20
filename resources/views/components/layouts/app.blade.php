@@ -62,7 +62,7 @@
 	<div class="flex flex-grow w-full overflow-y-hidden">
 		{{ $slot }}
 	</div>
-	<livewire:utils.notice />
+	{{--<livewire:utils.notice />--}}
 	@persist('pomodoro')
 		<livewire:pomodoro />
 	@endpersist
