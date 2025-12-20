@@ -63,6 +63,9 @@
 		{{ $slot }}
 	</div>
 	<livewire:utils.notice />
+	@persist('pomodoro')
+		<livewire:pomodoro />
+	@endpersist
 	@livewire('wire-elements-modal')
 	@vite('resources/assets/js/app.js')
 	@stack('javascript')
