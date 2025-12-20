@@ -2,6 +2,7 @@
 
 import 'preline/dist/dropdown';
 import '@wotz/livewire-sortablejs';
+import '~/toastify.js';
 
 document.addEventListener('livewire:initialized', () => {
 	window.addEventListener('refresh.preline.dropdown', () => {
