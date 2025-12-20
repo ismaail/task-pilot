@@ -36,6 +36,7 @@ class CardComponent extends Component
         }
 
         $this->refreshCard($currentCard);
+        $this->dispatch('task.started');
         $this->success('Task started successfully.');
         $this->toggleFavicon(true);
     }
@@ -49,6 +50,7 @@ class CardComponent extends Component
         CreateTimelogAction::run($currentCard);
 
         $this->refreshCard($currentCard);
+        $this->dispatch('task.stoped');
         $this->success('Task Stoped successfully.');
         $this->toggleFavicon(false);
     }

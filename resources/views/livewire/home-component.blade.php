@@ -3,7 +3,7 @@
 	<h1 class="p-4 bg-gray-300 rounded text-lg font-semibold text-text">@lang('All Boards')</h1>
 	<div class="flex w-full flex-grow items-start overflow-y-hidden mt-4 space-x-3">
 		@foreach($boards as $board)
-			<a href="{{ route('boards.show', $board->id) }}" class="flex basis-48 shrink-0 items-center w-72 p-2 space-y-2 rounded bg-gray-300 hover:contrast-75 text-text font-semibold">
+			<a wire:navigate href="{{ route('boards.show', $board->id) }}" class="flex basis-48 shrink-0 items-center w-72 p-2 space-y-2 rounded bg-gray-300 hover:contrast-75 text-text font-semibold">
 				{{ $board->name }}
 				@if ($current_board_id === $board->id)
 					<x-icons.play class="ms-auto size-5 fill-primary text-primary"></x-icons.play>
