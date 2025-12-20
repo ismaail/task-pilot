@@ -10,11 +10,12 @@ use Domain\Card\Models\Card;
 use Domain\Timelog\Actions\CreateTimelogAction;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
-use Support\Helpers\Concerns\UseNotice;
+use Support\Toastify\Enums\ToastType;
+use Support\Toastify\Toast;
 
 class CardComponent extends Component
 {
-    use UseNotice;
+    use Toast;
 
     public Card $card;
 
@@ -37,7 +38,7 @@ class CardComponent extends Component
 
         $this->refreshCard($currentCard);
         $this->dispatch('task.started');
-        $this->success('Task started successfully.');
+        $this->toast('Task started successfully.', type: ToastType::Success);
         $this->toggleFavicon(true);
     }
 
@@ -51,7 +52,7 @@ class CardComponent extends Component
 
         $this->refreshCard($currentCard);
         $this->dispatch('task.stoped');
-        $this->success('Task Stoped successfully.');
+        $this->toast('Task Stoped successfully.', type: ToastType::Success);
         $this->toggleFavicon(false);
     }
 
@@ -60,7 +61,7 @@ class CardComponent extends Component
         $this->card->update(['archived' => true]);
 
         $this->dispatch("bucket-{$this->card->bucket_id}-updated");
-        $this->success('Task Archived successfully.');
+        $this->toast('Task Archived successfully.', type: ToastType::Success);
     }
 
     private function toggleFavicon(bool $value): void
@@ -75,7 +76,7 @@ class CardComponent extends Component
         $this->card->delete();
 
         $this->dispatch("bucket-$bucketId-updated");
-        $this->success('Task Deleted successfully.');
+        $this->toast('Task Deleted successfully.', type: ToastType::Success);
     }
 
     public function render(): View
