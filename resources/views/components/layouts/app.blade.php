@@ -29,15 +29,19 @@
 			localStorage.setItem('dark-mode', 'false');
 		};
 
-		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-			changeDarkMode(e.matches);
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+			changeDarkMode(event.matches);
 		});
 
-		changeDarkMode(
-			null !== localStorage.getItem('dark-mode')
-				? localStorage.getItem('dark-mode') === 'true'
-				:window.matchMedia('(prefers-color-scheme: dark)').matches
-		);
+		const isDark = () => {
+				return null !== localStorage.getItem('dark-mode')
+					? localStorage.getItem('dark-mode') === 'true'
+					:window.matchMedia('(prefers-color-scheme: dark)').matches;
+		};
+
+		changeDarkMode(isDark());
+
+		document.addEventListener('livewire:navigated', () => changeDarkMode(isDark()));
 	</script>
 </head>
 <body>
