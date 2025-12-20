@@ -6,6 +6,8 @@
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
 
+@source inline("bg-success bg-danger");
+
 @custom-variant dark (&:where([data-mode=dark], [data-mode=dark] *));
 
 :root {
@@ -16,6 +18,8 @@
 	--color-gray-300: #f7f7f7;
 	--color-text: theme('colors.neutral.900');
 	--color-blue: theme('colors.blue.600');
+	--color-success: theme('colors.green.600');
+	--color-danger: theme('colors.red.500');
 }
 
 :root[data-mode=dark] {
@@ -24,6 +28,8 @@
 	--color-gray-300: #0e3957;
 	--color-text: theme('colors.white');
 	--color-blue: theme('colors.blue.600');
+	--color-success: theme('colors.green.600');
+	--color-danger: theme('colors.red.500');
 }
 
 @theme {
@@ -37,6 +43,8 @@
 	--color-gray-300: var(--color-gray-300);
 	--color-text: var(--color-text);
 	--color-blue: var(--color-blue);
+	--color-success: var(--color-success);
+	--color-danger: var(--color-danger);
 }
 
 @layer base {

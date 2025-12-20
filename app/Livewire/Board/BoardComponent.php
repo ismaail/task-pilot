@@ -11,12 +11,12 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Collection;
 use Livewire\Component;
-use Support\Helpers\Concerns\NoticeType;
-use Support\Helpers\Concerns\UseNotice;
+use Support\Toastify\Enums\ToastType;
+use Support\Toastify\Toast;
 
 class BoardComponent extends Component
 {
-    use UseNotice;
+    use Toast;
 
     public Board $board;
 
@@ -62,7 +62,7 @@ class BoardComponent extends Component
     {
         $this->board->delete();
 
-        $this->flashNotice(NoticeType::Success, 'Board was successfully deleted.');
+        $this->toast('Board was successfully deleted.', type: ToastType::Success);
 
         redirect()->route('home');
     }
@@ -71,7 +71,7 @@ class BoardComponent extends Component
     {
         $this->board->update(['archived' => true]);
 
-        $this->flashNotice(NoticeType::Success, 'Board was successfully archived.');
+        $this->toast('Board was successfully archived.', type: ToastType::Success);
 
         redirect()->route('home');
     }

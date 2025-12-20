@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\On;
@@ -86,7 +87,7 @@ class Pomodoro extends Component
         $this->dispatch('pomodoro.stoped');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.pomodoro');
     }

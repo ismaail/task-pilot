@@ -2,13 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Support\Helpers\Concerns;
+namespace Support\Toastify\Enums;
 
-enum NoticeType: string
+enum ToastType: string
 {
-    case Notice = 'notice';
+    case Error = 'danger';
     case Info = 'info';
     case Success = 'success';
     case Warning = 'warning';
-    case Error = 'error';
 }

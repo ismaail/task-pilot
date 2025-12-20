@@ -21,5 +21,5 @@ export default defineConfig({
 			'@livewire': fileURLToPath(new URL('./vendor/livewire/livewire/dist', import.meta.url)),
 			'/images': '/public/images',
 		}
-	}
+	},
 });
