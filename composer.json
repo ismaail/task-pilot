@@ -11,7 +11,7 @@
         "laravel/fortify": "^1.24",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.9",
-        "livewire/livewire": "^3.5",
+        "livewire/livewire": "^4.0",
         "lorisleiva/laravel-actions": "^2.8",
         "sentry/sentry-laravel": "^4.9",
         "spatie/eloquent-sortable": "^4.4",
