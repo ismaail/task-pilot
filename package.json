@@ -13,7 +13,7 @@
 		"@wotz/livewire-sortablejs": "^1.0.0",
 		"chart.js": "^4.4.4",
 		"laravel-vite-plugin": "^2.0.0",
-		"preline": "^3.2.3",
+		"preline": "^4.0",
 		"tailwindcss": "^4.1.0",
 		"toastify-js": "^1.12.0",
 		"vite": "^7.0.4"
