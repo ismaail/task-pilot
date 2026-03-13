@@ -6,9 +6,11 @@ use Carbon\CarbonImmutable;
 use Domain\Card\DataObjects\CurrentCardDataObject;
 use Domain\Card\Models\Card;
 use Domain\Timelog\Actions\CreateTimelogAction;
+use Domain\Timelog\TimelogException;
 use Domain\User\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
-uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
+uses(RefreshDatabase::class);
 
 it('creates a naw Timelog for current Active Card in Same Day', function () {
     /** @var Card $card */
@@ -92,7 +94,7 @@ it('Throw error If Card start & Finish date are more than 1 day. ', function () 
     $date = CarbonImmutable::create(2024, 3, 12, 00, 10, 00);
     CarbonImmutable::setTestNow($date);
 
-    $this->expectException(\Domain\Timelog\TimelogException::class);
+    $this->expectException(TimelogException::class);
 
     $this->assertDatabaseCount('timelogs', 0);
     CreateTimelogAction::run(CurrentCardDataObject::makeFromAuthUser());

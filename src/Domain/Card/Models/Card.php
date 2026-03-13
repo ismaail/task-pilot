@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Card\Models;
 
+use Database\Factories\Card\CardFactory;
 use Domain\Bucket\Models\Bucket;
 use Domain\Timelog\Models\Timelog;
 use Domain\Timelog\ValueObject\ElapsedTime;
@@ -22,7 +23,7 @@ use Support\Models\Concerns\HasFactory;
  */
 class Card extends Model implements Sortable
 {
-    /** @use HasFactory<\Database\Factories\Card\CardFactory> */
+    /** @use HasFactory<CardFactory> */
     use HasFactory;
 
     use SortableTrait;

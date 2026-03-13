@@ -1,14 +1,16 @@
 <?php
 
 declare(strict_types=1);
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 uses(
-    Tests\TestCase::class,
-    \Illuminate\Foundation\Testing\RefreshDatabase::class,
+    TestCase::class,
+    RefreshDatabase::class,
 )
     ->in('Feature')
 ;
 
-uses(Tests\TestCase::class)
+uses(TestCase::class)
     ->in('Unit', 'Architecture')
 ;

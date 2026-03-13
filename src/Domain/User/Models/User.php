@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Domain\User\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Database\Factories\User\UserFactory;
 use Domain\Card\Models\Card;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -16,7 +17,7 @@ use Support\Models\Concerns\HasFactory;
  */
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\User\UserFactory> */
+    /** @use HasFactory<UserFactory> */
     use HasFactory;
 
     use Notifiable;

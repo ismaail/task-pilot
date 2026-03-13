@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Board\Models;
 
+use Database\Factories\Board\BoardFactory;
 use Domain\Bucket\Models\Bucket;
 use Domain\User\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -16,7 +17,7 @@ use Support\Models\Concerns\HasFactory;
  */
 class Board extends Model
 {
-    /** @use HasFactory<\Database\Factories\Board\BoardFactory> */
+    /** @use HasFactory<BoardFactory> */
     use HasFactory;
 
     protected $table = 'boards';
@@ -38,7 +39,7 @@ class Board extends Model
     }
 
     /**
-     * @return BelongsToMany<User, $this, \Domain\Board\Models\BoardMember, 'membership'>
+     * @return BelongsToMany<User, $this, BoardMember, 'membership'>
      */
     public function members(): BelongsToMany
     {

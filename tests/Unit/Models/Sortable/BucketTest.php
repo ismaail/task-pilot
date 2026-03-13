@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 use Domain\Board\Models\Board;
 use Domain\Bucket\Models\Bucket;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
-uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
+uses(RefreshDatabase::class);
 
 it('Creates new Bucket with sort column in sequance', function () {
     Bucket::factory(3)

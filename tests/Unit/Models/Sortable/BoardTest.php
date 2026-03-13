@@ -5,8 +5,9 @@ declare(strict_types=1);
 use Domain\Board\Models\Board;
 use Domain\Bucket\Models\Bucket;
 use Domain\Card\Models\Card;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
-uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
+uses(RefreshDatabase::class);
 
 it('Creates new Card with sort column in sequance', function () {
     Card::factory(3)

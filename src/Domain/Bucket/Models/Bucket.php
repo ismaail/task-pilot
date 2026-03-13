@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Bucket\Models;
 
+use Database\Factories\Bucket\BucketFactory;
 use Domain\Board\Models\Board;
 use Domain\Card\Models\Card;
 use Illuminate\Database\Eloquent\Model;
@@ -18,7 +19,7 @@ use Support\Models\Concerns\HasFactory;
  */
 class Bucket extends Model implements Sortable
 {
-    /** @use HasFactory<\Database\Factories\Bucket\BucketFactory> */
+    /** @use HasFactory<BucketFactory> */
     use HasFactory;
 
     use SortableTrait;
