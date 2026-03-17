@@ -1,16 +1,13 @@
 /* global HSDropdown, Livewire */
 
-import 'preline/dist/dropdown';
+import { HSDropdown } from 'preline';
 import '@wotz/livewire-sortablejs';
 import '~/toastify.js';
 
 document.addEventListener('livewire:initialized', () => {
 	window.addEventListener('refresh.preline.dropdown', () => {
-		if (! HSDropdown) {
-			return;
-		}
-
-		setTimeout(() => HSDropdown.autoInit(), 1000);
+		//setTimeout(() => HSDropdown.autoInit(), 1000);
+		window.HSStaticMethods.autoInit(['dropdown']);
 	});
 
 	window.addEventListener('swap-favicon', (event) => {

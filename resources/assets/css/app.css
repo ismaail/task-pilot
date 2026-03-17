@@ -1,7 +1,6 @@
 @import 'tailwindcss';
-/*@import "preline/src/plugins/overlay/variants.css";*/
-@import "preline/src/plugins/dropdown/variants.css";
-@import "preline/src/plugins/collapse/variants.css";
+@import "../../../node_modules/preline/src/plugins/dropdown/variants.css";
+@import "../../../node_modules/preline/src/plugins/collapse/variants.css";
 @import "toastify-js/src/toastify.css";
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
