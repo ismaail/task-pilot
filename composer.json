@@ -14,8 +14,8 @@
         "livewire/livewire": "^4.0",
         "lorisleiva/laravel-actions": "^2.8",
         "sentry/sentry-laravel": "^4.9",
-        "spatie/eloquent-sortable": "^4.4",
-        "spatie/laravel-backup": "^9.3",
+        "spatie/eloquent-sortable": "^5.0",
+        "spatie/laravel-backup": "^10.0",
         "spatie/laravel-collection-macros": "^8.0",
         "wire-elements/modal": "^3.0"
     },
