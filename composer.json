@@ -7,10 +7,10 @@
     "require": {
         "php": "^8.5",
         "ext-zip": "*",
-        "gehrisandro/tailwind-merge-laravel": "^1.2",
+        "gehrisandro/tailwind-merge-laravel": "dev-laravel-13-support",
         "laravel/fortify": "^1.24",
-        "laravel/framework": "^12.0",
-        "laravel/tinker": "^2.9",
+        "laravel/framework": "^13.0",
+        "laravel/tinker": "^3.0",
         "livewire/livewire": "^4.0",
         "lorisleiva/laravel-actions": "^2.8",
         "sentry/sentry-laravel": "^4.9",
@@ -23,7 +23,6 @@
         "barryvdh/laravel-debugbar": "^4.0",
         "barryvdh/laravel-ide-helper": "^3.6",
         "fakerphp/faker": "^1.23",
-        "laradumps/laradumps": "^5.0",
         "larastan/larastan": "^3.7",
         "laravel/pint": "^1.24",
         "mockery/mockery": "^1.6",
@@ -44,6 +43,12 @@
             "Tests\\": "tests/"
         }
     },
+    "repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/angus-mcritchie/tailwind-merge-laravel.git"
+		}
+	],
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
