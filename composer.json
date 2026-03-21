@@ -7,7 +7,7 @@
     "require": {
         "php": "^8.5",
         "ext-zip": "*",
-        "gehrisandro/tailwind-merge-laravel": "dev-laravel-13-support",
+        "gehrisandro/tailwind-merge-laravel": "^1.4",
         "laravel/fortify": "^1.24",
         "laravel/framework": "^13.0",
         "laravel/tinker": "^3.0",
@@ -43,12 +43,6 @@
             "Tests\\": "tests/"
         }
     },
-    "repositories": [
-		{
-			"type": "vcs",
-			"url": "https://github.com/angus-mcritchie/tailwind-merge-laravel.git"
-		}
-	],
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
