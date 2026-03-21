@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5dc1e4163f30a14d8759d721457ba439",
+    "content-hash": "12ac33e910aa5ea4de92f61fcada58dd",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -686,30 +686,30 @@
         },
         {
             "name": "gehrisandro/tailwind-merge-laravel",
-            "version": "dev-laravel-13-support",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/angus-mcritchie/tailwind-merge-laravel.git",
-                "reference": "3244da7ff0d9bd343112ff68bed3f92456d16dea"
+                "url": "https://github.com/gehrisandro/tailwind-merge-laravel.git",
+                "reference": "4dfc54d2f1c148b87a7f9803b3bae74c3437e7d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/angus-mcritchie/tailwind-merge-laravel/zipball/3244da7ff0d9bd343112ff68bed3f92456d16dea",
-                "reference": "3244da7ff0d9bd343112ff68bed3f92456d16dea",
+                "url": "https://api.github.com/repos/gehrisandro/tailwind-merge-laravel/zipball/4dfc54d2f1c148b87a7f9803b3bae74c3437e7d9",
+                "reference": "4dfc54d2f1c148b87a7f9803b3bae74c3437e7d9",
                 "shasum": ""
             },
             "require": {
                 "gehrisandro/tailwind-merge-php": "^v1.1.0",
                 "guzzlehttp/guzzle": "^7.5.1",
-                "laravel/framework": "^10.9.0|^11.0|^12.0|^13.0",
-                "php": "^8.1.0"
+                "laravel/framework": "^12.0|^13.0",
+                "php": "^8.2.0"
             },
             "require-dev": {
                 "laravel/pint": "^1.13.8",
-                "orchestra/testbench": "^8.0|^9.0|^10.0",
-                "pestphp/pest": "^v2.30.0|^3.7",
-                "pestphp/pest-plugin-arch": "^2.6|^3.0",
-                "pestphp/pest-plugin-type-coverage": "^2.8|^3.3",
+                "orchestra/testbench": "^10.0|^11.0",
+                "pestphp/pest": "^3.7|^4.4",
+                "pestphp/pest-plugin-arch": "^3.0|^4.0",
+                "pestphp/pest-plugin-type-coverage": "^3.3|^4.0",
                 "phpstan/phpstan": "^1.10.55|^2.1",
                 "rector/rector": "^0.19|^2.0",
                 "symfony/var-dumper": "^6.4.2|^7.0"
@@ -723,48 +723,14 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "TailwindMerge\\Laravel\\": "src/"
-                },
                 "files": [
                     "src/helpers.php"
-                ]
-            },
-            "autoload-dev": {
+                ],
                 "psr-4": {
-                    "Tests\\": "tests/"
+                    "TailwindMerge\\Laravel\\": "src/"
                 }
             },
-            "scripts": {
-                "refactor:lint": [
-                    "pint -v"
-                ],
-                "refactor:rector": [
-                    "rector"
-                ],
-                "test:lint": [
-                    "pint --test -v"
-                ],
-                "test:refactor": [
-                    "rector --dry-run"
-                ],
-                "test:types": [
-                    "phpstan analyse --ansi"
-                ],
-                "test:type-coverage": [
-                    "pest --type-coverage --min=100"
-                ],
-                "test:pest": [
-                    "pest --colors=always"
-                ],
-                "test": [
-                    "@test:lint",
-                    "@test:refactor",
-                    "@test:types",
-                    "@test:type-coverage",
-                    "@test:pest"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -783,44 +749,43 @@
                 "tailwindcss"
             ],
             "support": {
-                "source": "https://github.com/angus-mcritchie/tailwind-merge-laravel/tree/laravel-13-support"
+                "issues": "https://github.com/gehrisandro/tailwind-merge-laravel/issues",
+                "source": "https://github.com/gehrisandro/tailwind-merge-laravel/tree/v1.4.0"
             },
             "funding": [
                 {
-                    "type": "github",
-                    "url": "https://github.com/gehrisandro"
+                    "url": "https://github.com/gehrisandro",
+                    "type": "github"
                 }
             ],
-            "time": "2026-03-19T01:26:17+00:00"
+            "time": "2026-03-21T06:54:49+00:00"
         },
         {
             "name": "gehrisandro/tailwind-merge-php",
-            "version": "v1.1.2",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/gehrisandro/tailwind-merge-php.git",
-                "reference": "dc11b9d4a625dd5be885900e5ef14c3efa260277"
+                "reference": "400040c89bc958ed130699ee4db0213f689cd498"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gehrisandro/tailwind-merge-php/zipball/dc11b9d4a625dd5be885900e5ef14c3efa260277",
-                "reference": "dc11b9d4a625dd5be885900e5ef14c3efa260277",
+                "url": "https://api.github.com/repos/gehrisandro/tailwind-merge-php/zipball/400040c89bc958ed130699ee4db0213f689cd498",
+                "reference": "400040c89bc958ed130699ee4db0213f689cd498",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.1.0",
+                "php": "^8.2.0",
                 "psr/simple-cache": "^3.0"
             },
             "require-dev": {
                 "laravel/pint": "^1.13.8",
-                "nunomaduro/collision": "^7.10",
-                "pestphp/pest": "^v2.24.0",
-                "pestphp/pest-plugin-arch": "^2.6",
-                "pestphp/pest-plugin-mock": "^2.0.0",
-                "pestphp/pest-plugin-type-coverage": "^2.8",
-                "phpstan/phpstan": "^1.10.55",
-                "rector/rector": "^1.0.5",
-                "symfony/var-dumper": "^6.4.2"
+                "nunomaduro/collision": "^v8.9.1",
+                "pestphp/pest": "^v4.4.2",
+                "pestphp/pest-plugin-type-coverage": "^v4.0.3",
+                "phpstan/phpstan": "^2.1.42",
+                "rector/rector": "^2.3.9",
+                "symfony/var-dumper": "^v7.4.6"
             },
             "type": "library",
             "autoload": {
@@ -850,7 +815,7 @@
             ],
             "support": {
                 "issues": "https://github.com/gehrisandro/tailwind-merge-php/issues",
-                "source": "https://github.com/gehrisandro/tailwind-merge-php/tree/v1.1.2"
+                "source": "https://github.com/gehrisandro/tailwind-merge-php/tree/v1.2.0"
             },
             "funding": [
                 {
@@ -858,7 +823,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-05-21T17:32:42+00:00"
+            "time": "2026-03-21T06:39:15+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -7877,16 +7842,16 @@
         },
         {
             "name": "brianium/paratest",
-            "version": "v7.19.0",
+            "version": "v7.19.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paratestphp/paratest.git",
-                "reference": "7c6c29af7c4b406b49ce0c6b0a3a81d3684474e6"
+                "reference": "66e4f7910cecf67736bccf2b8bd53a2e3eb98bd9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paratestphp/paratest/zipball/7c6c29af7c4b406b49ce0c6b0a3a81d3684474e6",
-                "reference": "7c6c29af7c4b406b49ce0c6b0a3a81d3684474e6",
+                "url": "https://api.github.com/repos/paratestphp/paratest/zipball/66e4f7910cecf67736bccf2b8bd53a2e3eb98bd9",
+                "reference": "66e4f7910cecf67736bccf2b8bd53a2e3eb98bd9",
                 "shasum": ""
             },
             "require": {
@@ -7900,9 +7865,9 @@
                 "phpunit/php-code-coverage": "^12.5.3 || ^13.0.1",
                 "phpunit/php-file-iterator": "^6.0.1 || ^7",
                 "phpunit/php-timer": "^8 || ^9",
-                "phpunit/phpunit": "^12.5.9 || ^13",
+                "phpunit/phpunit": "^12.5.14 || ^13.0.5",
                 "sebastian/environment": "^8.0.3 || ^9",
-                "symfony/console": "^7.4.4 || ^8.0.4",
+                "symfony/console": "^7.4.7 || ^8.0.7",
                 "symfony/process": "^7.4.5 || ^8.0.5"
             },
             "require-dev": {
@@ -7910,11 +7875,11 @@
                 "ext-pcntl": "*",
                 "ext-pcov": "*",
                 "ext-posix": "*",
-                "phpstan/phpstan": "^2.1.38",
-                "phpstan/phpstan-deprecation-rules": "^2.0.3",
-                "phpstan/phpstan-phpunit": "^2.0.12",
-                "phpstan/phpstan-strict-rules": "^2.0.8",
-                "symfony/filesystem": "^7.4.0 || ^8.0.1"
+                "phpstan/phpstan": "^2.1.40",
+                "phpstan/phpstan-deprecation-rules": "^2.0.4",
+                "phpstan/phpstan-phpunit": "^2.0.16",
+                "phpstan/phpstan-strict-rules": "^2.0.10",
+                "symfony/filesystem": "^7.4.6 || ^8.0.6"
             },
             "bin": [
                 "bin/paratest",
@@ -7954,7 +7919,7 @@
             ],
             "support": {
                 "issues": "https://github.com/paratestphp/paratest/issues",
-                "source": "https://github.com/paratestphp/paratest/tree/v7.19.0"
+                "source": "https://github.com/paratestphp/paratest/tree/v7.19.2"
             },
             "funding": [
                 {
@@ -7966,7 +7931,7 @@
                     "type": "paypal"
                 }
             ],
-            "time": "2026-02-06T10:53:26+00:00"
+            "time": "2026-03-09T14:33:17+00:00"
         },
         {
             "name": "composer/class-map-generator",
@@ -8850,20 +8815,20 @@
         },
         {
             "name": "pestphp/pest",
-            "version": "v4.4.2",
+            "version": "v4.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest.git",
-                "reference": "5d42e8fe3ae1d9fdf7c9f73ee88138fd30265701"
+                "reference": "e6ab897594312728ef2e32d586cb4f6780b1b495"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest/zipball/5d42e8fe3ae1d9fdf7c9f73ee88138fd30265701",
-                "reference": "5d42e8fe3ae1d9fdf7c9f73ee88138fd30265701",
+                "url": "https://api.github.com/repos/pestphp/pest/zipball/e6ab897594312728ef2e32d586cb4f6780b1b495",
+                "reference": "e6ab897594312728ef2e32d586cb4f6780b1b495",
                 "shasum": ""
             },
             "require": {
-                "brianium/paratest": "^7.19.0",
+                "brianium/paratest": "^7.19.2",
                 "nunomaduro/collision": "^8.9.1",
                 "nunomaduro/termwind": "^2.4.0",
                 "pestphp/pest-plugin": "^4.0.0",
@@ -8871,12 +8836,12 @@
                 "pestphp/pest-plugin-mutate": "^4.0.1",
                 "pestphp/pest-plugin-profanity": "^4.2.1",
                 "php": "^8.3.0",
-                "phpunit/phpunit": "^12.5.12",
+                "phpunit/phpunit": "^12.5.14",
                 "symfony/process": "^7.4.5|^8.0.5"
             },
             "conflict": {
                 "filp/whoops": "<2.18.3",
-                "phpunit/phpunit": ">12.5.12",
+                "phpunit/phpunit": ">12.5.14",
                 "sebastian/exporter": "<7.0.0",
                 "webmozart/assert": "<1.11.0"
             },
@@ -8950,7 +8915,7 @@
             ],
             "support": {
                 "issues": "https://github.com/pestphp/pest/issues",
-                "source": "https://github.com/pestphp/pest/tree/v4.4.2"
+                "source": "https://github.com/pestphp/pest/tree/v4.4.3"
             },
             "funding": [
                 {
@@ -8962,7 +8927,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-03-10T21:09:12+00:00"
+            "time": "2026-03-21T13:14:39+00:00"
         },
         {
             "name": "pestphp/pest-plugin",
@@ -10146,16 +10111,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "12.5.12",
+            "version": "12.5.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "418e06b3b46b0d54bad749ff4907fc7dfb530199"
+                "reference": "47283cfd98d553edcb1353591f4e255dc1bb61f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/418e06b3b46b0d54bad749ff4907fc7dfb530199",
-                "reference": "418e06b3b46b0d54bad749ff4907fc7dfb530199",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/47283cfd98d553edcb1353591f4e255dc1bb61f0",
+                "reference": "47283cfd98d553edcb1353591f4e255dc1bb61f0",
                 "shasum": ""
             },
             "require": {
@@ -10224,7 +10189,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/12.5.12"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/12.5.14"
             },
             "funding": [
                 {
@@ -10248,7 +10213,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-02-16T08:34:36+00:00"
+            "time": "2026-02-18T12:38:40+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -11373,9 +11338,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "gehrisandro/tailwind-merge-laravel": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
