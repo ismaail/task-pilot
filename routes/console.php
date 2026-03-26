@@ -4,6 +4,4 @@ declare(strict_types=1);
 
 use Illuminate\Support\Facades\Schedule;
 
-Schedule::call('backup:run')
-    ->daily()
-;
+Schedule::command('backup:run')->everyThreeHours();
