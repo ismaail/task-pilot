@@ -10,15 +10,19 @@ use Domain\User\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Spatie\EloquentSortable\Sortable;
+use Spatie\EloquentSortable\SortableTrait;
 use Support\Models\Concerns\HasFactory;
 
 /**
  * @mixin IdeHelperBoard
  */
-class Board extends Model
+class Board extends Model implements Sortable
 {
     /** @use HasFactory<BoardFactory> */
     use HasFactory;
+
+    use SortableTrait;
 
     protected $table = 'boards';
 
