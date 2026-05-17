@@ -1,7 +1,7 @@
 <x-slot name="title">Boards</x-slot>
 <div class="flex flex-col w-full px-4 pb-4">
 	<h1 class="p-4 bg-gray-300 rounded text-lg font-semibold text-text">@lang('All Boards')</h1>
-	<div class="flex w-full flex-grow items-start overflow-y-hidden mt-4 space-x-3">
+	<div class="flex w-full grow items-start overflow-y-hidden mt-4 space-x-3">
 		@foreach($boards as $board)
 			<a wire:navigate href="{{ route('boards.show', $board->id) }}" class="flex basis-48 shrink-0 items-center w-72 p-2 space-y-2 rounded bg-gray-300 hover:contrast-75 text-text font-semibold">
 				{{ $board->name }}

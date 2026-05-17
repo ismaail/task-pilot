@@ -1,6 +1,6 @@
 <div
 		wire:sortable.item="{{ $bucket->id }}"
-		class="basis-72 shrink-0 p-2 space-y-2 rounded bg-gray-300 max-h-full overflow-y-auto scrollbar border-1 border-gray-700">
+		class="basis-72 shrink-0 p-2 space-y-2 rounded bg-gray-300 max-h-full overflow-y-auto scrollbar border border-gray-700">
 	{{-- Bucket Name & Tasks Count --}}
 	<div class="flex items-start justify-between">
 		{{-- Bucket Title + Cards/ count --}}
