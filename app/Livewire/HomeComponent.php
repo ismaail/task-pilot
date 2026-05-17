@@ -26,6 +26,14 @@ class HomeComponent extends Component
         $this->user = $user;
     }
 
+    /**
+     * @param list<array{order: int, value: numeric-string}> $items
+     */
+    public function sortBoards(array $items): void
+    {
+        Board::setNewOrder(collect($items)->pluck('value'));
+    }
+
     public function render(): View
     {
         $boards = Board::query()
