@@ -33,7 +33,7 @@
 	<div
 			wire:sortable="sortBuckets"
 			wire:sortable-group="sortCards"
-			class="flex w-full flex-grow items-start overflow-y-hidden mt-4 pb-2 space-x-3 scrollbar">
+			class="flex w-full grow items-start overflow-y-hidden mt-4 pb-2 space-x-3 scrollbar">
 		@foreach($buckets as $bucket)
 			<livewire:bucket.bucket-component :key="$bucket->id" :bucket="$bucket" />
 		@endforeach
