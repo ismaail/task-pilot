@@ -131,7 +131,7 @@ tests:
 	docker exec -it \
 		-u $(UID) \
 		$(CONTAINER_FPM) \
-		php ./vendor/bin/pest --do-not-cache-result --no-coverage \
+		php ./vendor/bin/pest --do-not-record-test-run-history --no-coverage \
 		2>/dev/null || true
 
 phpstan:
